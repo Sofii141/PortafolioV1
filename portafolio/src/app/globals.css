@@ -1,0 +1,184 @@
+@import "tailwindcss";
+
+:root {
+  --background: #f6ecd9;
+  --background-2: #efd9b8;
+  --background-3: #e9c79a;
+  --foreground: #2a1f17;
+  --muted: #6b5746;
+  --card: rgba(255, 252, 246, 0.55);
+  --card-strong: rgba(255, 252, 246, 0.78);
+  --border: rgba(60, 35, 20, 0.08);
+  --border-strong: rgba(60, 35, 20, 0.14);
+  --pink: #ff2ea8;
+  --pink-soft: #ffb6dd;
+  --brown: #6b4423;
+  --brown-soft: #b88b6a;
+  --beige: #e8c9a0;
+  --cream: #fff6e6;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-background-2: var(--background-2);
+  --color-background-3: var(--background-3);
+  --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-card: var(--card);
+  --color-card-strong: var(--card-strong);
+  --color-border-soft: var(--border);
+  --color-border-strong: var(--border-strong);
+  --color-pink: var(--pink);
+  --color-pink-soft: var(--pink-soft);
+  --color-brown: var(--brown);
+  --color-brown-soft: var(--brown-soft);
+  --color-beige: var(--beige);
+  --color-cream: var(--cream);
+  --font-sans: var(--font-sans-custom);
+  --font-display: var(--font-display);
+  --font-script: var(--font-script);
+  --font-mono: var(--font-geist-mono);
+}
+
+html, body {
+  background: var(--background);
+  color: var(--foreground);
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+/* FullPage slide layout — body has no scroll, sections animate via FullPage component */
+html, body {
+  overflow: hidden;
+  overscroll-behavior: none;
+}
+
+/* Each section is exactly one viewport tall; if content exceeds, scroll happens inside */
+.snap-section {
+  height: 100svh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.snap-section > * {
+  width: 100%;
+  flex-shrink: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html, body {
+    overflow: auto;
+  }
+}
+
+body {
+  font-family: var(--font-sans-custom), ui-sans-serif, system-ui, sans-serif;
+  font-feature-settings: "ss01", "cv11";
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Global background — driven by current theme's --bg-gradient */
+.bg-portfolio {
+  background: var(--bg-gradient);
+  transition: background 0.5s ease;
+}
+
+.glass {
+  background: var(--card);
+  backdrop-filter: blur(18px) saturate(140%);
+  -webkit-backdrop-filter: blur(18px) saturate(140%);
+  border: 1px solid var(--border-strong);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.7) inset,
+    0 8px 30px -10px rgba(60, 35, 20, 0.18);
+}
+
+.glass-strong {
+  background: var(--card-strong);
+  backdrop-filter: blur(22px) saturate(160%);
+  -webkit-backdrop-filter: blur(22px) saturate(160%);
+  border: 1px solid var(--border-strong);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.85) inset,
+    0 20px 50px -20px rgba(60, 35, 20, 0.25);
+}
+
+.pill {
+  border-radius: 9999px;
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.32rem 0.72rem;
+  border-radius: 9999px;
+  background: rgba(255, 252, 246, 0.7);
+  border: 1px solid var(--border-strong);
+  font-size: 0.78rem;
+  color: var(--foreground);
+  white-space: nowrap;
+  backdrop-filter: blur(8px);
+}
+
+.chip-pink {
+  background: var(--pink);
+  color: white;
+  border-color: transparent;
+  box-shadow: 0 6px 16px -6px rgba(255, 46, 168, 0.55);
+}
+
+.dot-pink {
+  width: 8px;
+  height: 8px;
+  border-radius: 9999px;
+  background: var(--pink);
+  box-shadow: 0 0 0 4px rgba(255, 46, 168, 0.15);
+}
+
+/* Pretty scrollbar */
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb {
+  background: rgba(107, 68, 35, 0.25);
+  border-radius: 9999px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+::-webkit-scrollbar-thumb:hover { background: rgba(107, 68, 35, 0.45); background-clip: padding-box; }
+
+/* Marquee animation for stack */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  animation: marquee 40s linear infinite;
+}
+
+/* Soft pulse for star/badge */
+@keyframes soft-pulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.08); opacity: 0.85; }
+}
+
+.animate-soft-pulse {
+  animation: soft-pulse 2.4s ease-in-out infinite;
+}
+
+/* Selection */
+::selection {
+  background: var(--pink);
+  color: white;
+}
+
+/* Focus visible default */
+:focus-visible {
+  outline: 2px solid var(--pink);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
