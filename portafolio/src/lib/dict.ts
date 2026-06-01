@@ -64,6 +64,11 @@ export const dict = {
         "Soy Ana Sofia, estudiante de Ingeniería de Sistemas en la Universidad del Cauca (noveno semestre). Me obsesiona el detalle: una transición que se siente bien, un error que no asusta, una API que se lee como prosa.",
         "Vivo entre el frontend bonito y el backend que aguanta. Ahora exploro la intersección con IA — agentes, modelos embebidos y arquitecturas modernas. Bilingüe (ES/EN) y abierta a remoto, híbrido o presencial.",
       ],
+      manifesto: {
+        eyebrow: "Manifiesto",
+        quote: "AI doesn't replace creativity—it amplifies it.",
+        attribution: "lo que creo sobre el futuro del software",
+      },
       signature: "— hecho con cariño en Popayán",
       values: [
         { label: "Craft", value: "El detalle es el producto." },
@@ -94,6 +99,8 @@ export const dict = {
         frequent: "Frecuente",
         exploring: "Explorando",
       },
+      toolsLabel: "herramientas",
+      distribution: "Distribución",
       groups: [
         {
           name: "Frontend",
@@ -305,6 +312,11 @@ export const dict = {
         "I'm Ana Sofia, a Systems Engineering student at Universidad del Cauca (9th semester). I'm obsessed with the small stuff: a transition that feels right, an error that doesn't scare, an API that reads like prose.",
         "I live between pretty frontends and backends that hold. Right now I'm exploring the intersection with AI — agents, embedded models and modern architectures. Bilingual (ES/EN), open to remote, hybrid or onsite.",
       ],
+      manifesto: {
+        eyebrow: "Manifesto",
+        quote: "AI doesn't replace creativity—it amplifies it.",
+        attribution: "what I believe about the future of software",
+      },
       signature: "— made with love in Popayán",
       values: [
         { label: "Craft", value: "The detail is the product." },
@@ -335,6 +347,8 @@ export const dict = {
         frequent: "Frequent",
         exploring: "Exploring",
       },
+      toolsLabel: "tools",
+      distribution: "Distribution",
       groups: [
         {
           name: "Frontend",

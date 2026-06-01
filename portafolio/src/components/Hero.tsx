@@ -48,7 +48,7 @@ export function Hero() {
   return (
     <section
       id="home"
-      className="relative h-full w-full overflow-hidden px-4 sm:px-6 lg:px-10 pt-20 pb-3 sm:pt-24 sm:pb-4 flex flex-col"
+      className="relative w-full md:h-full md:overflow-hidden px-4 sm:px-6 lg:px-10 pt-20 pb-8 sm:pt-24 sm:pb-4 flex flex-col gap-4 md:gap-0"
     >
       {/* MASTHEAD */}
       <motion.header
@@ -69,7 +69,7 @@ export function Hero() {
       </motion.header>
 
       {/* MAIN — split: left=text/stats/CTAs, right=photo composition */}
-      <main className="flex-1 grid grid-cols-12 gap-3 sm:gap-4 lg:gap-5 items-stretch min-h-0 py-2 sm:py-3">
+      <main className="md:flex-1 grid grid-cols-12 gap-6 md:gap-4 lg:gap-5 items-stretch min-h-0 md:py-2 sm:py-3">
         {/* LEFT */}
         <div className="col-span-12 md:col-span-6 lg:col-span-6 flex flex-col justify-center gap-2.5 sm:gap-3 lg:gap-3.5">
           {/* Tagline pill */}
@@ -86,24 +86,26 @@ export function Hero() {
           {/* Huge name */}
           <h1
             aria-label="Ana Sofia Arango Yanza"
-            className="font-display tracking-[-0.03em] leading-[0.92] text-[color:var(--foreground)]"
+            className="font-display tracking-[-0.03em] leading-[0.95] text-[color:var(--foreground)]"
           >
-            <RevealLine
-              text="Ana"
-              delay={0.25}
-              className="block text-[18vw] sm:text-[14vw] md:text-[11vw] lg:text-[9.5vw] xl:text-[120px]"
-            />
-            <RevealLine
-              text="Sofia"
-              delay={0.4}
-              italic
-              className="block text-[20vw] sm:text-[15vw] md:text-[12vw] lg:text-[10.5vw] xl:text-[136px] text-[color:var(--brown)]"
-            />
+            <span className="flex flex-wrap items-baseline gap-x-2 sm:gap-x-3 md:gap-x-4">
+              <RevealLine
+                text="Ana"
+                delay={0.25}
+                className="text-[16vw] sm:text-[12vw] md:text-[9vw] lg:text-[7.5vw] xl:text-[96px]"
+              />
+              <RevealLine
+                text="Sofia"
+                delay={0.4}
+                italic
+                className="text-[18vw] sm:text-[13vw] md:text-[10vw] lg:text-[8.5vw] xl:text-[108px] text-[color:var(--brown)]"
+              />
+            </span>
             <motion.span
               initial={{ opacity: 0, x: -8 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, ease, delay: 0.85 }}
-              className="block font-display italic text-[16px] sm:text-[20px] md:text-[22px] lg:text-[28px] tracking-tight text-[color:var(--muted)] mt-1 sm:mt-2"
+              className="block font-display italic text-[16px] sm:text-[20px] md:text-[22px] lg:text-[28px] tracking-tight text-[color:var(--muted)] mt-1 sm:mt-1.5"
             >
               {t.hero.surname}
             </motion.span>
@@ -171,19 +173,21 @@ export function Hero() {
         {/* RIGHT — photo composition (2 photos + magazine details) */}
         <motion.div
           style={{ x: parallax.x, y: parallax.y }}
-          className="col-span-12 md:col-span-6 lg:col-span-6 relative flex justify-center items-center"
+          className="col-span-12 md:col-span-6 lg:col-span-6 relative flex justify-center items-center h-[340px] sm:h-[400px] md:h-auto"
         >
           <PhotoComposition />
         </motion.div>
       </main>
 
       {/* BENTO TILES STRIP (bottom) */}
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-2 sm:gap-2.5 shrink-0">
+      <div className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-6 gap-2 sm:gap-2.5 shrink-0 mt-4 md:mt-3">
         <StackTile delay={stagger(0)} />
         <AvailableTile delay={stagger(1)} />
         <HowTile delay={stagger(2)} />
         <ExploringTile delay={stagger(3)} />
-        <CodeTile delay={stagger(4)} />
+        <div className="hidden sm:block sm:col-span-1">
+          <CodeTile delay={stagger(4)} />
+        </div>
       </div>
     </section>
   );
@@ -636,9 +640,8 @@ function RevealLine({
 }) {
   return (
     <span
-      className={`${italic ? "italic" : ""} ${className} overflow-hidden`}
+      className={`${italic ? "italic" : ""} ${className} overflow-hidden inline-block align-baseline`}
       aria-hidden="true"
-      style={{ display: "block" }}
     >
       <span style={{ display: "inline-block" }}>
         {text.split("").map((char, i) => (

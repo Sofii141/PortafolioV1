@@ -75,6 +75,55 @@ export function About() {
               ))}
             </div>
 
+            {/* AI Manifesto pull quote */}
+            <motion.figure
+              initial={{ opacity: 0, y: 12 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.7, ease, delay: 0.35 }}
+              className="mt-5 relative max-w-xl rounded-2xl overflow-hidden"
+            >
+              <div
+                aria-hidden
+                className="absolute inset-0 opacity-90"
+                style={{
+                  background:
+                    "linear-gradient(135deg, color-mix(in srgb, var(--pink) 18%, transparent) 0%, color-mix(in srgb, var(--brown-soft) 22%, transparent) 100%)",
+                }}
+              />
+              <div
+                aria-hidden
+                className="absolute inset-0 pointer-events-none"
+                style={{
+                  background:
+                    "radial-gradient(120% 80% at 0% 0%, rgba(255,255,255,0.55) 0%, transparent 55%)",
+                }}
+              />
+
+              <div className="relative px-5 py-4 sm:px-6 sm:py-5 border border-[color:var(--border-strong)] rounded-2xl">
+                <div className="flex items-center gap-2 mb-2">
+                  <span className="block h-2 w-2 rounded-full bg-[color:var(--pink)] shadow-[0_0_0_4px_rgba(255,46,168,0.18)]" />
+                  <span className="text-[10px] uppercase tracking-[0.22em] font-bold text-[color:var(--pink)]">
+                    {t.about.manifesto.eyebrow}
+                  </span>
+                  <span className="ml-auto font-mono text-[9px] text-[color:var(--muted)] opacity-70">
+                    {"// belief.ts"}
+                  </span>
+                </div>
+
+                <blockquote className="font-display italic text-xl sm:text-2xl leading-snug text-[color:var(--foreground)] tracking-tight">
+                  <span aria-hidden className="text-[color:var(--pink)] mr-1">“</span>
+                  {t.about.manifesto.quote}
+                  <span aria-hidden className="text-[color:var(--pink)] ml-1">”</span>
+                </blockquote>
+
+                <figcaption className="mt-2 flex items-center gap-2 text-[11px] text-[color:var(--muted)]">
+                  <span className="h-px w-6 bg-[color:var(--border-strong)]" />
+                  <span>{t.about.manifesto.attribution}</span>
+                </figcaption>
+              </div>
+            </motion.figure>
+
             <div className="mt-4 flex items-center gap-3 flex-wrap">
               <span className="inline-flex items-center gap-2 chip">
                 <Sparkles className="h-3 w-3 text-[color:var(--pink)]" />

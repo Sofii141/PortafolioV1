@@ -65,6 +65,7 @@ export function FullPage({
 
   const [index, setIndex] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
+  const [viewportH, setViewportH] = useState(800);
   const lockedUntil = useRef<number>(0);
   const wheelAccumRef = useRef<number>(0);
   const wheelTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -80,11 +81,23 @@ export function FullPage({
     return () => mq.removeEventListener("change", onChange);
   }, []);
 
+  // Track viewport height for px-based carousel translation
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const update = () => setViewportH(window.innerHeight);
+    update();
+    window.addEventListener("resize", update);
+    return () => window.removeEventListener("resize", update);
+  }, []);
+
+  const isMobileRef = useRef(false);
+  useEffect(() => {
+    isMobileRef.current = isMobile;
+  }, [isMobile]);
+
   const goTo = useCallback(
     (target: number | string, _dir?: Direction) => {
       void _dir;
-      const now = Date.now();
-      if (now < lockedUntil.current) return;
 
       const targetIdx =
         typeof target === "string"
@@ -92,6 +105,19 @@ export function FullPage({
           : target;
 
       if (targetIdx < 0 || targetIdx >= childArr.length) return;
+
+      // On mobile: scroll the section into view; the IntersectionObserver will sync index
+      if (isMobileRef.current && typeof window !== "undefined") {
+        const id = ids[targetIdx];
+        const el = id ? document.getElementById(id) : null;
+        if (el) {
+          el.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+        return;
+      }
+
+      const now = Date.now();
+      if (now < lockedUntil.current) return;
 
       setIndex((prev) => {
         if (targetIdx === prev) return prev;
@@ -317,7 +343,8 @@ export function FullPage({
         >
           <motion.div
             className="absolute top-0 left-0 w-full will-change-transform"
-            animate={{ y: `-${(index * 100) / childArr.length}%` }}
+            initial={false}
+            animate={{ y: -index * viewportH }}
             transition={{ duration: TRANSITION_MS / 1000, ease }}
             style={{ height: `${childArr.length * 100}%` }}
           >
@@ -331,8 +358,73 @@ export function FullPage({
               </div>
             ))}
           </motion.div>
+
+          <TransitionEffects index={index} count={childArr.length} />
         </div>
       )}
     </FullPageContext.Provider>
+  );
+}
+
+/* ============ Transition Effects ============ */
+/* Isolated component — only re-renders when index changes, doesn't disturb the carousel motion.div */
+function TransitionEffects({ index, count }: { index: number; count: number }) {
+  return (
+    <>
+      {/* Color wash overlay — flashes pink on every change */}
+      <motion.div
+        key={`wash-${index}`}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: [0, 0.55, 0] }}
+        transition={{
+          duration: TRANSITION_MS / 1000,
+          ease,
+          times: [0, 0.45, 1],
+        }}
+        className="pointer-events-none fixed inset-0 z-30 mix-blend-soft-light"
+        style={{
+          background:
+            "radial-gradient(60% 50% at 50% 50%, color-mix(in srgb, var(--pink) 70%, transparent) 0%, transparent 70%)",
+        }}
+        aria-hidden
+      />
+
+      {/* Editorial slide bar — sweeps thin pink line across viewport */}
+      <motion.div
+        key={`sweep-${index}`}
+        initial={{ scaleX: 0, opacity: 0 }}
+        animate={{ scaleX: [0, 1, 1], opacity: [0, 1, 0] }}
+        transition={{
+          duration: TRANSITION_MS / 1000,
+          ease,
+          times: [0, 0.35, 1],
+        }}
+        className="pointer-events-none fixed top-1/2 left-0 right-0 z-30 h-px origin-left"
+        style={{
+          background:
+            "linear-gradient(90deg, transparent, color-mix(in srgb, var(--pink) 90%, transparent) 50%, transparent)",
+        }}
+        aria-hidden
+      />
+
+      {/* Section counter badge — slides in from edge */}
+      <motion.div
+        key={`label-${index}`}
+        initial={{ opacity: 0, x: 24 }}
+        animate={{ opacity: [0, 1, 1, 0], x: [24, 0, 0, 24] }}
+        transition={{
+          duration: (TRANSITION_MS + 400) / 1000,
+          ease,
+          times: [0, 0.25, 0.8, 1],
+        }}
+        className="pointer-events-none fixed top-1/2 -translate-y-1/2 right-12 z-30 hidden lg:flex items-center gap-2"
+        aria-hidden
+      >
+        <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-[color:var(--muted)]">
+          0{index + 1} / 0{count}
+        </span>
+        <span className="h-px w-8 bg-[color:var(--border-strong)]" />
+      </motion.div>
+    </>
   );
 }
