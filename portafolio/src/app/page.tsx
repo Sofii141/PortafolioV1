@@ -6,9 +6,11 @@ import { Experience } from "@/components/Experience";
 import { Contact } from "@/components/Contact";
 import { FullPage } from "@/components/FullPage";
 
+const SECTION_IDS = ["home", "about", "stack", "projects", "experience", "contact"];
+
 export default function Home() {
   return (
-    <FullPage>
+    <FullPage ids={SECTION_IDS}>
       <Hero />
       <About />
       <Stack />

@@ -1,5 +1,8 @@
 export type Locale = "es" | "en";
 
+export type StackLevel = "daily" | "frequent" | "exploring";
+export type StackItem = { name: string; level: StackLevel };
+
 export const dict = {
   es: {
     nav: {
@@ -11,7 +14,7 @@ export const dict = {
       contact: "Contacto",
     },
     hero: {
-      masthead: "PORTAFOLIO",
+      masthead: "PORTAFOLIO · ANA SOFIA",
       issue: "ISSUE 01",
       year: "2026",
       surname: "Arango Yanza",
@@ -54,12 +57,27 @@ export const dict = {
       },
     },
     about: {
-      eyebrow: "Sobre mí",
+      eyebrow: "Sobre mí · Pág. 02",
       title: "Construyo software con propósito.",
+      lead: "Curiosa de profesión. Ingeniera por elección.",
       body: [
-        "Soy Ana Sofia, estudiante de Ingeniería de Sistemas en la Universidad del Cauca (noveno semestre). Me apasiona crear aplicaciones web full stack robustas, escalables y con buen diseño.",
-        "Actualmente exploro la intersección entre desarrollo full stack e inteligencia artificial — agentes, modelos de ML embebidos en producto y arquitecturas modernas. Bilingüe (español/inglés) y abierta a oportunidades remotas, híbridas o presenciales.",
+        "Soy Ana Sofia, estudiante de Ingeniería de Sistemas en la Universidad del Cauca (noveno semestre). Me obsesiona el detalle: una transición que se siente bien, un error que no asusta, una API que se lee como prosa.",
+        "Vivo entre el frontend bonito y el backend que aguanta. Ahora exploro la intersección con IA — agentes, modelos embebidos y arquitecturas modernas. Bilingüe (ES/EN) y abierta a remoto, híbrido o presencial.",
       ],
+      signature: "— hecho con cariño en Popayán",
+      values: [
+        { label: "Craft", value: "El detalle es el producto." },
+        { label: "Curiosity", value: "Siempre con algo nuevo entre manos." },
+        { label: "Care", value: "Software que se siente humano." },
+      ],
+      nowInto: {
+        title: "ESTOS DÍAS",
+        items: [
+          "Construyendo agentes con LLMs",
+          "Leyendo sobre system design",
+          "Estudiando edge computing",
+        ],
+      },
       highlights: [
         { label: "Universidad", value: "Universidad del Cauca" },
         { label: "Programa", value: "Ing. de Sistemas — 9° semestre" },
@@ -68,60 +86,104 @@ export const dict = {
       ],
     },
     stack: {
-      eyebrow: "Stack",
+      eyebrow: "Stack · Pág. 03",
       title: "Tecnologías que uso todos los días.",
+      lead: "Herramientas que conozco a fondo, las que uso seguido y las que estoy explorando.",
+      legend: {
+        daily: "Diario",
+        frequent: "Frecuente",
+        exploring: "Explorando",
+      },
       groups: [
         {
           name: "Frontend",
-          items: ["React", "Next.js", "Angular", "TypeScript", "Tailwind CSS", "HTML5", "CSS3"],
+          items: [
+            { name: "React", level: "daily" as StackLevel },
+            { name: "Next.js", level: "daily" as StackLevel },
+            { name: "TypeScript", level: "daily" as StackLevel },
+            { name: "Tailwind CSS", level: "daily" as StackLevel },
+            { name: "HTML5", level: "daily" as StackLevel },
+            { name: "CSS3", level: "daily" as StackLevel },
+            { name: "Angular", level: "frequent" as StackLevel },
+          ],
         },
         {
           name: "Backend",
-          items: ["Node.js", "Java + Spring", ".NET", "Go", "Python", "REST", "GraphQL"],
+          items: [
+            { name: "Node.js", level: "daily" as StackLevel },
+            { name: "Java + Spring", level: "frequent" as StackLevel },
+            { name: "Python", level: "frequent" as StackLevel },
+            { name: "REST", level: "daily" as StackLevel },
+            { name: ".NET", level: "frequent" as StackLevel },
+            { name: "Go", level: "exploring" as StackLevel },
+            { name: "GraphQL", level: "exploring" as StackLevel },
+          ],
         },
         {
           name: "Bases de datos",
-          items: ["PostgreSQL", "MySQL", "MongoDB", "Oracle"],
+          items: [
+            { name: "PostgreSQL", level: "daily" as StackLevel },
+            { name: "MySQL", level: "frequent" as StackLevel },
+            { name: "MongoDB", level: "frequent" as StackLevel },
+            { name: "Oracle", level: "frequent" as StackLevel },
+          ],
         },
         {
           name: "IA & Datos",
-          items: ["TensorFlow", "Scikit-learn", "LLMs", "Agentes"],
+          items: [
+            { name: "LLMs", level: "daily" as StackLevel },
+            { name: "Agentes", level: "exploring" as StackLevel },
+            { name: "TensorFlow", level: "frequent" as StackLevel },
+            { name: "Scikit-learn", level: "frequent" as StackLevel },
+          ],
         },
         {
           name: "DevOps & Cloud",
-          items: ["Docker", "AWS", "Git", "Linux", "Postman", "CI/CD"],
+          items: [
+            { name: "Git", level: "daily" as StackLevel },
+            { name: "Docker", level: "frequent" as StackLevel },
+            { name: "Linux", level: "frequent" as StackLevel },
+            { name: "Postman", level: "daily" as StackLevel },
+            { name: "AWS", level: "exploring" as StackLevel },
+            { name: "CI/CD", level: "exploring" as StackLevel },
+          ],
         },
       ],
     },
     projects: {
-      eyebrow: "Proyectos",
+      eyebrow: "Proyectos · Pág. 04",
       title: "Una selección de cosas que he construido.",
       subtitle:
-        "Algunos están publicados, otros aún en mi GitHub. Pronto agrego aquí los destacados con demos en vivo.",
+        "Reservados los espacios para los destacados. Pronto cada uno con repo, demo en vivo y caso de estudio.",
       viewCode: "Ver código",
       liveDemo: "Demo",
+      reservedLabel: "Espacio reservado",
+      comingLabel: "Issue 02 · 2026",
       placeholderProjects: [
         {
-          name: "Proyecto destacado #1",
+          name: "Reservado · Vol. 01",
+          kind: "Full Stack Web App",
           description:
-            "Pronto: aplicación full stack con autenticación, dashboard y API REST.",
+            "Aplicación full stack con autenticación, dashboard y API REST. Caso de estudio en preparación.",
           tags: ["Next.js", "Node.js", "PostgreSQL"],
         },
         {
-          name: "Proyecto destacado #2",
-          description: "Pronto: integración de un modelo de ML con interfaz web.",
+          name: "Reservado · Vol. 02",
+          kind: "AI · ML Web",
+          description: "Modelo de ML integrado en producto con interfaz web. Próximamente.",
           tags: ["React", "Python", "TensorFlow"],
         },
         {
-          name: "Proyecto destacado #3",
-          description: "Pronto: microservicio en Spring Boot con Docker.",
+          name: "Reservado · Vol. 03",
+          kind: "Microservicio",
+          description: "Microservicio en Spring Boot con Docker y observabilidad.",
           tags: ["Java", "Spring", "Docker"],
         },
       ],
       seeAllOnGithub: "Ver todo en GitHub",
     },
     experience: {
-      eyebrow: "Trayectoria",
+      eyebrow: "Trayectoria · Pág. 05",
       title: "Educación, experiencia y certificaciones.",
       tabs: {
         education: "Educación",
@@ -139,37 +201,48 @@ export const dict = {
       ],
       work: [
         {
-          when: "Próximamente",
-          where: "Tu empresa puede ir aquí",
-          what: "Buscando oportunidades",
+          when: "Abierta · 2026",
+          where: "Buscando el equipo correcto",
+          what: "Próxima parada",
           detail:
-            "Abierta a prácticas, pasantías o roles junior full stack / AI engineer.",
+            "Prácticas, pasantías o rol junior — full stack o AI engineering. Remoto, híbrido o presencial. Si crees que encajamos, hablemos.",
         },
       ],
       certs: [
         {
-          when: "Pendiente",
-          where: "Plataforma",
-          what: "Agrega tus certificaciones aquí",
-          detail: "Edita src/lib/dict.ts para listar las que ya tienes.",
+          when: "En curso",
+          where: "Varias plataformas",
+          what: "Certificaciones en preparación",
+          detail:
+            "Trayectoria académica complementada con cursos especializados. El listado completo llega con la próxima edición del CV.",
         },
       ],
     },
     contact: {
-      eyebrow: "Contacto",
+      eyebrow: "Contacto · Pág. 06",
       title: "¿Trabajamos juntos?",
       subtitle:
-        "Estoy abierta a oportunidades full stack, AI engineering, prácticas o proyectos freelance. Escríbeme.",
+        "Estoy abierta a oportunidades full stack, AI engineering, prácticas o proyectos freelance. La caja está siempre abierta.",
       email: "Enviar email",
       cv: "Descargar CV",
       github: "GitHub",
       linkedin: "LinkedIn",
       copy: "Copiar email",
       copied: "¡Copiado!",
+      availability: {
+        title: "DISPONIBILIDAD",
+        timezone: "GMT-5 · Popayán, CO",
+        hours: "Lun — Vie · 8am — 6pm",
+        response: "Respondo en menos de 24h",
+        languages: "Español · Inglés",
+      },
+      signature: "— Hablemos pronto",
     },
     footer: {
       built: "Hecho con Next.js, Tailwind y Framer Motion.",
       rights: "Todos los derechos reservados.",
+      location: "Popayán, Colombia",
+      version: "v1.0 · Issue 01 · 2026",
     },
   },
   en: {
@@ -182,7 +255,7 @@ export const dict = {
       contact: "Contact",
     },
     hero: {
-      masthead: "PORTFOLIO",
+      masthead: "PORTFOLIO · ANA SOFIA",
       issue: "ISSUE 01",
       year: "2026",
       surname: "Arango Yanza",
@@ -225,12 +298,27 @@ export const dict = {
       },
     },
     about: {
-      eyebrow: "About",
+      eyebrow: "About · Pg. 02",
       title: "I build software with purpose.",
+      lead: "Curious by trade. Engineer by choice.",
       body: [
-        "I'm Ana Sofia, a Systems Engineering student at Universidad del Cauca (9th semester). I love building robust, scalable, well-designed full stack web apps.",
-        "Right now I'm exploring the intersection between full stack development and AI — agents, embedded ML models and modern architectures. Bilingual (Spanish/English) and open to remote, hybrid or onsite opportunities.",
+        "I'm Ana Sofia, a Systems Engineering student at Universidad del Cauca (9th semester). I'm obsessed with the small stuff: a transition that feels right, an error that doesn't scare, an API that reads like prose.",
+        "I live between pretty frontends and backends that hold. Right now I'm exploring the intersection with AI — agents, embedded models and modern architectures. Bilingual (ES/EN), open to remote, hybrid or onsite.",
       ],
+      signature: "— made with love in Popayán",
+      values: [
+        { label: "Craft", value: "The detail is the product." },
+        { label: "Curiosity", value: "Always something new on the workbench." },
+        { label: "Care", value: "Software that feels human." },
+      ],
+      nowInto: {
+        title: "RIGHT NOW",
+        items: [
+          "Building agents with LLMs",
+          "Reading about system design",
+          "Studying edge computing",
+        ],
+      },
       highlights: [
         { label: "University", value: "Universidad del Cauca" },
         { label: "Program", value: "Systems Eng. — 9th semester" },
@@ -239,60 +327,104 @@ export const dict = {
       ],
     },
     stack: {
-      eyebrow: "Stack",
+      eyebrow: "Stack · Pg. 03",
       title: "Technologies I use every day.",
+      lead: "Tools I know deep, the ones I use often, and the ones I'm exploring.",
+      legend: {
+        daily: "Daily",
+        frequent: "Frequent",
+        exploring: "Exploring",
+      },
       groups: [
         {
           name: "Frontend",
-          items: ["React", "Next.js", "Angular", "TypeScript", "Tailwind CSS", "HTML5", "CSS3"],
+          items: [
+            { name: "React", level: "daily" as StackLevel },
+            { name: "Next.js", level: "daily" as StackLevel },
+            { name: "TypeScript", level: "daily" as StackLevel },
+            { name: "Tailwind CSS", level: "daily" as StackLevel },
+            { name: "HTML5", level: "daily" as StackLevel },
+            { name: "CSS3", level: "daily" as StackLevel },
+            { name: "Angular", level: "frequent" as StackLevel },
+          ],
         },
         {
           name: "Backend",
-          items: ["Node.js", "Java + Spring", ".NET", "Go", "Python", "REST", "GraphQL"],
+          items: [
+            { name: "Node.js", level: "daily" as StackLevel },
+            { name: "Java + Spring", level: "frequent" as StackLevel },
+            { name: "Python", level: "frequent" as StackLevel },
+            { name: "REST", level: "daily" as StackLevel },
+            { name: ".NET", level: "frequent" as StackLevel },
+            { name: "Go", level: "exploring" as StackLevel },
+            { name: "GraphQL", level: "exploring" as StackLevel },
+          ],
         },
         {
           name: "Databases",
-          items: ["PostgreSQL", "MySQL", "MongoDB", "Oracle"],
+          items: [
+            { name: "PostgreSQL", level: "daily" as StackLevel },
+            { name: "MySQL", level: "frequent" as StackLevel },
+            { name: "MongoDB", level: "frequent" as StackLevel },
+            { name: "Oracle", level: "frequent" as StackLevel },
+          ],
         },
         {
           name: "AI & Data",
-          items: ["TensorFlow", "Scikit-learn", "LLMs", "Agents"],
+          items: [
+            { name: "LLMs", level: "daily" as StackLevel },
+            { name: "Agents", level: "exploring" as StackLevel },
+            { name: "TensorFlow", level: "frequent" as StackLevel },
+            { name: "Scikit-learn", level: "frequent" as StackLevel },
+          ],
         },
         {
           name: "DevOps & Cloud",
-          items: ["Docker", "AWS", "Git", "Linux", "Postman", "CI/CD"],
+          items: [
+            { name: "Git", level: "daily" as StackLevel },
+            { name: "Docker", level: "frequent" as StackLevel },
+            { name: "Linux", level: "frequent" as StackLevel },
+            { name: "Postman", level: "daily" as StackLevel },
+            { name: "AWS", level: "exploring" as StackLevel },
+            { name: "CI/CD", level: "exploring" as StackLevel },
+          ],
         },
       ],
     },
     projects: {
-      eyebrow: "Projects",
+      eyebrow: "Projects · Pg. 04",
       title: "A selection of things I've built.",
       subtitle:
-        "Some are live, others sit on my GitHub. Featured ones with live demos coming soon.",
+        "Slots reserved for the highlights. Each one will land with repo, live demo and a small case study.",
       viewCode: "View code",
       liveDemo: "Live demo",
+      reservedLabel: "Reserved slot",
+      comingLabel: "Issue 02 · 2026",
       placeholderProjects: [
         {
-          name: "Featured project #1",
+          name: "Reserved · Vol. 01",
+          kind: "Full Stack Web App",
           description:
-            "Coming soon: full stack app with auth, dashboard and REST API.",
+            "Full stack app with auth, dashboard and REST API. Case study in progress.",
           tags: ["Next.js", "Node.js", "PostgreSQL"],
         },
         {
-          name: "Featured project #2",
-          description: "Coming soon: ML model integration with a web UI.",
+          name: "Reserved · Vol. 02",
+          kind: "AI · ML Web",
+          description: "ML model embedded into a product with a web UI. Coming soon.",
           tags: ["React", "Python", "TensorFlow"],
         },
         {
-          name: "Featured project #3",
-          description: "Coming soon: Spring Boot microservice with Docker.",
+          name: "Reserved · Vol. 03",
+          kind: "Microservice",
+          description: "Spring Boot microservice with Docker and observability.",
           tags: ["Java", "Spring", "Docker"],
         },
       ],
       seeAllOnGithub: "See all on GitHub",
     },
     experience: {
-      eyebrow: "Journey",
+      eyebrow: "Journey · Pg. 05",
       title: "Education, experience & certifications.",
       tabs: {
         education: "Education",
@@ -310,37 +442,48 @@ export const dict = {
       ],
       work: [
         {
-          when: "Coming up",
-          where: "Your company could be here",
-          what: "Looking for opportunities",
+          when: "Open · 2026",
+          where: "Looking for the right team",
+          what: "Next stop",
           detail:
-            "Open to internships or junior full stack / AI engineer roles.",
+            "Internships, residencies or junior roles — full stack or AI engineering. Remote, hybrid or onsite. If it feels like a fit, let's talk.",
         },
       ],
       certs: [
         {
-          when: "Pending",
-          where: "Platform",
-          what: "Add your certifications here",
-          detail: "Edit src/lib/dict.ts to list the ones you already have.",
+          when: "In progress",
+          where: "Multiple platforms",
+          what: "Certifications loading",
+          detail:
+            "Academic path paired with specialized courses. Full list drops with the next issue of the CV.",
         },
       ],
     },
     contact: {
-      eyebrow: "Contact",
+      eyebrow: "Contact · Pg. 06",
       title: "Want to work together?",
       subtitle:
-        "Open to full stack, AI engineering, internships or freelance projects. Reach out.",
+        "Open to full stack, AI engineering, internships or freelance projects. The inbox is always open.",
       email: "Send email",
       cv: "Download CV",
       github: "GitHub",
       linkedin: "LinkedIn",
       copy: "Copy email",
       copied: "Copied!",
+      availability: {
+        title: "AVAILABILITY",
+        timezone: "GMT-5 · Popayán, CO",
+        hours: "Mon — Fri · 8am — 6pm",
+        response: "Replies under 24h",
+        languages: "Spanish · English",
+      },
+      signature: "— Talk soon",
     },
     footer: {
       built: "Built with Next.js, Tailwind and Framer Motion.",
       rights: "All rights reserved.",
+      location: "Popayán, Colombia",
+      version: "v1.0 · Issue 01 · 2026",
     },
   },
 } as const;

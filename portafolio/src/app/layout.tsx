@@ -27,23 +27,48 @@ const script = Caveat({
 });
 
 export const metadata: Metadata = {
-  title: "Ana Sofia Arango — Full Stack & AI Engineer",
+  title: {
+    default: "Ana Sofia Arango — Full Stack & AI Engineer",
+    template: "%s · Ana Sofia Arango",
+  },
   description:
-    "Portafolio personal de Ana Sofia Arango Yanza. Ingeniería de Sistemas. Full Stack Developer con interés en IA y agentes.",
+    "Portafolio personal de Ana Sofia Arango Yanza. Ingeniería de Sistemas. Full Stack Developer con interés en IA y agentes. Issue 01 · 2026.",
+  applicationName: "Ana Sofia · Portfolio",
   authors: [{ name: "Ana Sofia Arango Yanza" }],
+  creator: "Ana Sofia Arango Yanza",
   keywords: [
     "Ana Sofia Arango",
+    "Ana Sofia Arango Yanza",
     "Full Stack Developer",
     "AI Engineer",
     "Portfolio",
+    "Portafolio",
     "Ingeniería de Sistemas",
     "Universidad del Cauca",
+    "Popayán",
+    "Next.js",
+    "React",
+    "TypeScript",
   ],
+  category: "portfolio",
   openGraph: {
     title: "Ana Sofia Arango — Full Stack & AI Engineer",
     description:
-      "Portafolio personal. Full Stack Developer con interés en IA y agentes.",
+      "Portafolio personal estilo editorial. Full Stack Developer & AI Engineer. Issue 01 · 2026.",
     type: "website",
+    locale: "es_CO",
+    alternateLocale: ["en_US"],
+    siteName: "Ana Sofia · Portfolio",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Ana Sofia Arango — Full Stack & AI Engineer",
+    description:
+      "Portafolio personal estilo editorial. Full Stack & AI Engineer.",
+  },
+  robots: {
+    index: true,
+    follow: true,
   },
 };
 

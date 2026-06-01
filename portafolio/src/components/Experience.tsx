@@ -48,27 +48,37 @@ export function Experience() {
           {t.experience.title}
         </motion.h2>
 
-        {/* Tabs pill */}
-        <div className="inline-flex items-center gap-1 p-1 rounded-full glass-strong mb-8">
-          {(Object.keys(t.experience.tabs) as TabKey[]).map((key) => {
-            const Icon = tabIcons[key];
-            const active = tab === key;
-            return (
-              <button
-                key={key}
-                onClick={() => setTab(key)}
-                className={cn(
-                  "flex items-center gap-1.5 px-4 py-2 rounded-full text-[13px] font-semibold transition-all",
-                  active
-                    ? "bg-[color:var(--foreground)] text-[color:var(--background)]"
-                    : "text-[color:var(--muted)] hover:text-[color:var(--foreground)]",
-                )}
-              >
-                <Icon className="h-3.5 w-3.5" />
-                {t.experience.tabs[key]}
-              </button>
-            );
-          })}
+        {/* Tabs pill + count */}
+        <div className="flex flex-wrap items-center justify-between gap-3 mb-8">
+          <div className="inline-flex items-center gap-1 p-1 rounded-full glass-strong">
+            {(Object.keys(t.experience.tabs) as TabKey[]).map((key) => {
+              const Icon = tabIcons[key];
+              const active = tab === key;
+              return (
+                <button
+                  key={key}
+                  onClick={() => setTab(key)}
+                  className={cn(
+                    "flex items-center gap-1.5 px-4 py-2 rounded-full text-[13px] font-semibold transition-all",
+                    active
+                      ? "bg-[color:var(--foreground)] text-[color:var(--background)]"
+                      : "text-[color:var(--muted)] hover:text-[color:var(--foreground)]",
+                  )}
+                >
+                  <Icon className="h-3.5 w-3.5" />
+                  {t.experience.tabs[key]}
+                </button>
+              );
+            })}
+          </div>
+
+          <div className="hidden sm:flex items-center gap-2 text-[10px] uppercase tracking-[0.22em] font-bold text-[color:var(--muted)]">
+            <span className="font-mono text-[color:var(--foreground)]">
+              {String(items.length).padStart(2, "0")}
+            </span>
+            <span className="h-px w-8 bg-[color:var(--border-strong)]" />
+            <span>{t.experience.tabs[tab]}</span>
+          </div>
         </div>
 
         {/* Timeline */}
@@ -90,10 +100,16 @@ export function Experience() {
                 className="relative glass-strong rounded-2xl p-5"
               >
                 <span className="absolute -left-[33px] sm:-left-[41px] top-6 h-4 w-4 rounded-full bg-[color:var(--pink)] border-4 border-[color:var(--background)]" />
+
                 <div className="flex flex-wrap items-baseline justify-between gap-2 mb-2">
-                  <h3 className="font-display text-xl sm:text-2xl leading-tight">
-                    {item.what}
-                  </h3>
+                  <div className="flex items-center gap-2">
+                    <span className="text-[10px] font-mono text-[color:var(--muted)] opacity-60">
+                      №{String(i + 1).padStart(2, "0")}
+                    </span>
+                    <h3 className="font-display text-xl sm:text-2xl leading-tight">
+                      {item.what}
+                    </h3>
+                  </div>
                   <span className="text-[11px] uppercase tracking-[0.15em] font-semibold text-[color:var(--muted)]">
                     {item.when}
                   </span>

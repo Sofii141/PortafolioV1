@@ -20,7 +20,7 @@ export function SideDots() {
   return (
     <nav
       aria-label="Section navigation"
-      className="fixed right-2 sm:right-5 top-1/2 -translate-y-1/2 z-40 flex flex-col items-center gap-2.5 sm:gap-3"
+      className="hidden md:flex fixed right-2 sm:right-5 top-1/2 -translate-y-1/2 z-40 flex-col items-center gap-2.5 sm:gap-3"
     >
       {ids.map((id, i) => {
         const isActive = index === i;

@@ -69,9 +69,9 @@ export function Hero() {
       </motion.header>
 
       {/* MAIN — split: left=text/stats/CTAs, right=photo composition */}
-      <main className="flex-1 grid grid-cols-12 gap-3 sm:gap-5 lg:gap-6 items-stretch min-h-0 py-2 sm:py-3">
+      <main className="flex-1 grid grid-cols-12 gap-3 sm:gap-4 lg:gap-5 items-stretch min-h-0 py-2 sm:py-3">
         {/* LEFT */}
-        <div className="col-span-12 md:col-span-7 lg:col-span-7 flex flex-col justify-center gap-2.5 sm:gap-3 lg:gap-3.5">
+        <div className="col-span-12 md:col-span-6 lg:col-span-6 flex flex-col justify-center gap-2.5 sm:gap-3 lg:gap-3.5">
           {/* Tagline pill */}
           <motion.div
             initial={{ opacity: 0, y: 8 }}
@@ -86,18 +86,18 @@ export function Hero() {
           {/* Huge name */}
           <h1
             aria-label="Ana Sofia Arango Yanza"
-            className="font-display tracking-[-0.03em] leading-[0.85] text-[color:var(--foreground)]"
+            className="font-display tracking-[-0.03em] leading-[0.92] text-[color:var(--foreground)]"
           >
             <RevealLine
               text="Ana"
               delay={0.25}
-              className="block text-[18vw] sm:text-[14vw] md:text-[10vw] lg:text-[8.5vw] xl:text-[110px]"
+              className="block text-[18vw] sm:text-[14vw] md:text-[11vw] lg:text-[9.5vw] xl:text-[120px]"
             />
             <RevealLine
               text="Sofia"
               delay={0.4}
               italic
-              className="block text-[20vw] sm:text-[15vw] md:text-[11vw] lg:text-[9.5vw] xl:text-[124px] text-[color:var(--brown)] -mt-[2vw]"
+              className="block text-[20vw] sm:text-[15vw] md:text-[12vw] lg:text-[10.5vw] xl:text-[136px] text-[color:var(--brown)]"
             />
             <motion.span
               initial={{ opacity: 0, x: -8 }}
@@ -171,7 +171,7 @@ export function Hero() {
         {/* RIGHT — photo composition (2 photos + magazine details) */}
         <motion.div
           style={{ x: parallax.x, y: parallax.y }}
-          className="col-span-12 md:col-span-5 lg:col-span-5 relative flex justify-center md:justify-end items-center"
+          className="col-span-12 md:col-span-6 lg:col-span-6 relative flex justify-center items-center"
         >
           <PhotoComposition />
         </motion.div>
@@ -196,7 +196,7 @@ function PhotoComposition() {
   const [secondaryError, setSecondaryError] = useState(false);
 
   return (
-    <div className="relative w-full h-full max-h-[460px] sm:max-h-[480px] lg:max-h-[520px] flex items-center justify-center">
+    <div className="relative w-full h-full max-h-[460px] sm:max-h-[480px] lg:max-h-[540px] flex items-center justify-center">
       {/* Halo blob */}
       <div
         className="absolute right-0 top-1/2 -translate-y-1/2 w-[110%] h-[80%] rounded-full blur-3xl opacity-50 pointer-events-none"
@@ -220,7 +220,7 @@ function PhotoComposition() {
         initial={{ opacity: 0, y: 20, scale: 0.96 }}
         animate={{ opacity: 1, y: 0, scale: 1 }}
         transition={{ duration: 0.9, ease, delay: 0.55 }}
-        className="relative w-[78%] h-[88%] z-10"
+        className="relative w-[88%] h-[94%] z-10"
       >
         <div className="relative h-full w-full rounded-[24px] overflow-hidden border-[3px] border-[color:var(--foreground)]/12 shadow-2xl bg-[color:var(--background-2)]">
           {/* Fallback gradient */}

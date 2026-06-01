@@ -9,6 +9,10 @@ import {
   Copy,
   Check,
   ArrowUpRight,
+  Clock,
+  Globe,
+  Languages,
+  Zap,
 } from "lucide-react";
 import { Github, Linkedin } from "./BrandIcons";
 
@@ -25,6 +29,13 @@ export function Contact() {
     setTimeout(() => setCopied(false), 1800);
   };
 
+  const availabilityRows = [
+    { icon: Globe, label: t.contact.availability.timezone },
+    { icon: Clock, label: t.contact.availability.hours },
+    { icon: Zap, label: t.contact.availability.response },
+    { icon: Languages, label: t.contact.availability.languages },
+  ];
+
   return (
     <section id="contact" className="snap-section py-20 px-4 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-6xl">
@@ -33,7 +44,7 @@ export function Contact() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.7, ease }}
-          className="glass-strong rounded-[36px] p-8 sm:p-12 lg:p-16 relative overflow-hidden"
+          className="glass-strong rounded-[36px] p-8 sm:p-12 lg:p-14 relative overflow-hidden"
         >
           {/* Decorative blob */}
           <div
@@ -44,7 +55,13 @@ export function Contact() {
             }}
           />
 
-          <div className="relative grid md:grid-cols-[1.4fr_1fr] gap-8 md:gap-10 items-center">
+          {/* Page marker */}
+          <div className="absolute top-5 right-5 hidden sm:flex items-center gap-2 text-[9px] uppercase tracking-[0.22em] font-bold text-[color:var(--muted)]">
+            <span className="h-px w-6 bg-[color:var(--border-strong)]" />
+            Pág. 06 · Final
+          </div>
+
+          <div className="relative grid md:grid-cols-[1.4fr_1fr] gap-8 md:gap-10 items-start">
             <div>
               <div className="flex items-center gap-2 mb-3">
                 <span className="dot-pink" />
@@ -87,6 +104,40 @@ export function Contact() {
                   {t.contact.copied}
                 </span>
               )}
+
+              {/* Availability card */}
+              <div className="mt-7 rounded-2xl bg-white/55 border border-[color:var(--border-strong)] backdrop-blur-sm p-4 max-w-lg">
+                <div className="flex items-center justify-between gap-2 mb-3">
+                  <div className="flex items-center gap-1.5 text-[10px] uppercase tracking-[0.2em] font-bold text-[color:var(--pink)]">
+                    <span className="relative flex h-1.5 w-1.5">
+                      <span className="absolute inline-flex h-full w-full rounded-full bg-green-500 opacity-60 animate-ping" />
+                      <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-green-500" />
+                    </span>
+                    {t.contact.availability.title}
+                  </div>
+                  <span className="text-[9px] font-mono text-[color:var(--muted)] opacity-60">
+                    LIVE
+                  </span>
+                </div>
+                <div className="grid grid-cols-2 gap-2.5">
+                  {availabilityRows.map((row, i) => {
+                    const Icon = row.icon;
+                    return (
+                      <div
+                        key={i}
+                        className="flex items-center gap-2 text-[12px] text-[color:var(--foreground)]"
+                      >
+                        <Icon className="h-3.5 w-3.5 text-[color:var(--brown)] flex-shrink-0" />
+                        <span className="leading-tight">{row.label}</span>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+
+              <div className="mt-5 font-script text-2xl sm:text-3xl text-[color:var(--brown)] leading-none">
+                {t.contact.signature}
+              </div>
             </div>
 
             <div className="space-y-2.5">
@@ -138,6 +189,12 @@ export function Contact() {
                   </span>
                   <ArrowUpRight className="h-3.5 w-3.5 opacity-60 group-hover:opacity-100" />
                 </a>
+              </div>
+
+              {/* Mini footer inside the card */}
+              <div className="pt-3 mt-3 border-t border-[color:var(--border-strong)] flex items-center justify-between text-[10px] text-[color:var(--muted)]">
+                <span className="font-mono">{t.footer.version}</span>
+                <span>{t.footer.location}</span>
               </div>
             </div>
           </div>

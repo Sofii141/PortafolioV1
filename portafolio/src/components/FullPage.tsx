@@ -40,8 +40,14 @@ const WHEEL_THRESHOLD = 10;
 const TOUCH_THRESHOLD = 55;
 const ease = [0.83, 0, 0.17, 1] as const;
 
-export function FullPage({ children }: { children: ReactNode }) {
-  // Collect children as array, extract ids from props
+export function FullPage({
+  children,
+  ids: idsProp,
+}: {
+  children: ReactNode;
+  ids?: string[];
+}) {
+  // Collect children as array, extract ids from props (or explicit prop)
   const childArr = useMemo(
     () => Children.toArray(children).filter(isValidElement) as ReactElement[],
     [children],
@@ -49,17 +55,30 @@ export function FullPage({ children }: { children: ReactNode }) {
 
   const ids = useMemo(
     () =>
+      idsProp ??
       childArr.map((c) => {
         const props = c.props as { id?: string };
         return props.id ?? "";
       }),
-    [childArr],
+    [childArr, idsProp],
   );
 
   const [index, setIndex] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
   const lockedUntil = useRef<number>(0);
   const wheelAccumRef = useRef<number>(0);
   const wheelTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  // Detect mobile/tablet — fall back to natural scrolling
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const mq = window.matchMedia("(max-width: 767px)");
+    const onChange = (e: MediaQueryListEvent | MediaQueryList) =>
+      setIsMobile(e.matches);
+    onChange(mq);
+    mq.addEventListener("change", onChange);
+    return () => mq.removeEventListener("change", onChange);
+  }, []);
 
   const goTo = useCallback(
     (target: number | string, _dir?: Direction) => {
@@ -77,12 +96,6 @@ export function FullPage({ children }: { children: ReactNode }) {
       setIndex((prev) => {
         if (targetIdx === prev) return prev;
         lockedUntil.current = now + TRANSITION_MS;
-
-        // Sync URL hash without scroll jump
-        const id = ids[targetIdx];
-        if (id && typeof window !== "undefined") {
-          history.replaceState(null, "", `#${id}`);
-        }
         return targetIdx;
       });
     },
@@ -100,9 +113,22 @@ export function FullPage({ children }: { children: ReactNode }) {
     }
   }, [ids]);
 
-  // Wheel, touch, keyboard, hashchange listeners
+  // Sync URL hash whenever index changes (deferred to avoid Router updates during render)
   useEffect(() => {
     if (typeof window === "undefined") return;
+    const id = ids[index];
+    if (!id) return;
+    if (location.hash.slice(1) === id) return;
+    const handle = setTimeout(() => {
+      history.replaceState(null, "", `#${id}`);
+    }, 0);
+    return () => clearTimeout(handle);
+  }, [index, ids]);
+
+  // Wheel, touch, keyboard, hashchange listeners (desktop only)
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    if (isMobile) return;
 
     const SCROLL_EDGE_TOLERANCE = 2;
     const SCROLLABLE_MIN_OVERFLOW = 80;
@@ -232,7 +258,35 @@ export function FullPage({ children }: { children: ReactNode }) {
       window.removeEventListener("keydown", handleKey);
       window.removeEventListener("hashchange", handleHash);
     };
-  }, [goTo, ids, index, childArr.length]);
+  }, [goTo, ids, index, childArr.length, isMobile]);
+
+  // Mobile-only: track active section via IntersectionObserver so Nav/SideDots stay in sync
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    if (!isMobile) return;
+
+    const sections = ids
+      .map((id) => (id ? document.getElementById(id) : null))
+      .filter((el): el is HTMLElement => !!el);
+    if (sections.length === 0) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visible = entries
+          .filter((e) => e.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+        if (visible) {
+          const id = (visible.target as HTMLElement).id;
+          const idx = ids.indexOf(id);
+          if (idx >= 0) setIndex(idx);
+        }
+      },
+      { threshold: [0.35, 0.55, 0.75] },
+    );
+
+    sections.forEach((s) => observer.observe(s));
+    return () => observer.disconnect();
+  }, [isMobile, ids]);
 
   const value = useMemo<Ctx>(
     () => ({ index, count: childArr.length, ids, goTo }),
@@ -244,27 +298,41 @@ export function FullPage({ children }: { children: ReactNode }) {
       <Nav />
       <SideDots />
       <ThemeSwitcher />
-      <div
-        className="fixed inset-0 overflow-hidden touch-pan-y"
-        aria-roledescription="carousel"
-      >
-        <motion.div
-          className="absolute top-0 left-0 w-full will-change-transform"
-          animate={{ y: `-${(index * 100) / childArr.length}%` }}
-          transition={{ duration: TRANSITION_MS / 1000, ease }}
-          style={{ height: `${childArr.length * 100}%` }}
+      {isMobile ? (
+        <div
+          className="relative w-full"
+          data-fp-mode="mobile"
+          aria-roledescription="stack"
         >
           {childArr.map((child, i) => (
-            <div
-              key={i}
-              className="h-[100svh] w-full relative"
-              aria-hidden={i !== index}
-            >
+            <div key={i} className="w-full relative">
               {child}
             </div>
           ))}
-        </motion.div>
-      </div>
+        </div>
+      ) : (
+        <div
+          className="fixed inset-0 overflow-hidden touch-pan-y"
+          aria-roledescription="carousel"
+        >
+          <motion.div
+            className="absolute top-0 left-0 w-full will-change-transform"
+            animate={{ y: `-${(index * 100) / childArr.length}%` }}
+            transition={{ duration: TRANSITION_MS / 1000, ease }}
+            style={{ height: `${childArr.length * 100}%` }}
+          >
+            {childArr.map((child, i) => (
+              <div
+                key={i}
+                className="h-[100svh] w-full relative"
+                aria-hidden={i !== index}
+              >
+                {child}
+              </div>
+            ))}
+          </motion.div>
+        </div>
+      )}
     </FullPageContext.Provider>
   );
 }
