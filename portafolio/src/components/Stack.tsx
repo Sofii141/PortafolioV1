@@ -135,7 +135,8 @@ export function Stack() {
           {t.stack.groups.map((g, i) => {
             const Icon = groupIcons[g.name] || Layout;
             // Partition items by level
-            const byLevel: Record<StackLevel, typeof g.items> = {
+            type StackItem = { name: string; level: StackLevel };
+            const byLevel: Record<StackLevel, StackItem[]> = {
               daily: g.items.filter((it) => it.level === "daily"),
               frequent: g.items.filter((it) => it.level === "frequent"),
               exploring: g.items.filter((it) => it.level === "exploring"),
