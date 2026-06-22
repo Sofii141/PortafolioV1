@@ -1,0 +1,235 @@
+% =====================================================================
+%  CV — Ana Sofia Arango Yanza  (English version)
+%  Recommended compiler: XeLaTeX
+%  Style: modern minimalist — single column, ATS-friendly
+% =====================================================================
+
+\documentclass[11pt,a4paper]{article}
+
+% ----- Page geometry -----
+\usepackage[
+  a4paper,
+  top=1.4cm,
+  bottom=1.4cm,
+  left=1.6cm,
+  right=1.6cm
+]{geometry}
+
+% ----- Encoding -----
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[english]{babel}
+
+% ----- Typography -----
+\usepackage[default,scale=0.95]{sourcesanspro}
+
+% ----- Colors -----
+\usepackage{xcolor}
+\definecolor{accent}{HTML}{C7385A}
+\definecolor{ink}{HTML}{1a1a1a}
+\definecolor{muted}{HTML}{6b6b6b}
+\definecolor{rule}{HTML}{d4d4d4}
+
+% ----- Headings and rules -----
+\usepackage{titlesec}
+\titleformat{\section}
+  {\color{ink}\large\bfseries\MakeUppercase}
+  {}{0pt}{}
+  [\vspace{2pt}\color{rule}\titlerule\vspace{4pt}]
+\titlespacing*{\section}{0pt}{12pt}{4pt}
+
+% ----- Links -----
+\usepackage[hidelinks]{hyperref}
+\hypersetup{
+  colorlinks=true,
+  urlcolor=accent,
+  linkcolor=ink,
+}
+
+% ----- Compact lists -----
+\usepackage{enumitem}
+\setlist[itemize]{leftmargin=*, topsep=2pt, itemsep=1pt, parsep=0pt, label={\color{accent}$\bullet$}}
+
+% ----- No page numbers -----
+\pagestyle{empty}
+
+% ----- CV helpers -----
+\newcommand{\cventry}[4]{%
+  \noindent\textbf{\color{ink}#1}\hfill{\color{muted}\small#2}\\
+  {\color{ink}\itshape#3}\hfill{\color{muted}\small#4}\par
+  \vspace{2pt}
+}
+
+\newcommand{\cvaward}[3]{%
+  \noindent{\color{ink}#1}\hfill{\color{muted}\small#3}\\
+  {\color{muted}\small#2}\par\vspace{4pt}
+}
+
+% Project: #1 title+role, #2 date/link, #3 subtitle/client, #4 bullets, #5 stack
+\newcommand{\cvproject}[5]{%
+  \noindent\textbf{\color{ink}#1}\hfill{\color{muted}\small#2}\\
+  {\color{accent}\small\itshape#3}\par
+  \vspace{1pt}
+  {\color{ink}#4}
+  \vspace{1pt}\par
+  {\color{muted}\small\textbf{Tech:} #5}\par\vspace{6pt}
+}
+
+% Skill row: #1 category, #2 list
+\newcommand{\cvskill}[2]{%
+  \noindent{\color{ink}\small\textbf{#1}}\hspace{0.4em}{\color{muted}\small#2}\par\vspace{2pt}
+}
+
+\setlength{\parindent}{0pt}
+
+% =====================================================================
+\begin{document}
+
+% =====================================================================
+%  HEADER
+% =====================================================================
+\begin{center}
+  {\huge\bfseries\color{ink} Ana Sofia Arango Yanza}\\[4pt]
+  {\color{muted}\small
+    Popayán, Colombia\ \textbullet\
+    \href{mailto:sofiaarango141@gmail.com}{sofiaarango141@gmail.com}\
+    \textbullet\ +57 310 668 3378
+  }\\[2pt]
+  {\color{muted}\small
+    \href{https://ana-sofia-arango.vercel.app}{ana-sofia-arango.vercel.app}\
+    \textbullet\
+    \href{https://linkedin.com/in/ana-sofia-arango}{linkedin.com/in/ana-sofia-arango}\
+    \textbullet\
+    \href{https://github.com/Sofii141}{github.com/Sofii141}
+  }
+\end{center}
+
+\vspace{4pt}
+
+% =====================================================================
+%  SUMMARY
+% =====================================================================
+\section*{Summary}
+{\color{ink}
+Systems Engineering student (9th semester, GPA 4.5/5.0) and full-stack developer
+with experience leading software projects for public-sector clients and building
+generative-AI solutions with LLMs and multi-agent systems. Passionate about
+detail, product design, and the intersection of software engineering and
+artificial intelligence. Bilingual (Spanish / English).
+}
+
+% =====================================================================
+%  EDUCATION
+% =====================================================================
+\section*{Education}
+
+\cventry
+  {Universidad del Cauca}{Aug. 2022 -- Jun. 2027 (expected)}
+  {B.Sc. in Systems Engineering}{Popayán, Colombia}
+
+\vspace{-2pt}
+{\color{ink}\small GPA: \textbf{4.5 / 5.0} \textbullet\ Currently in 9th semester}
+
+% =====================================================================
+%  HONORS & AFFILIATIONS
+% =====================================================================
+\section*{Honors \& Affiliations}
+
+\cvaward
+  {Dean's List Scholarship (Matrícula de Honor) — Universidad del Cauca}
+  {Awarded three times for outstanding academic performance.}
+  {2023 -- 2026}
+
+\cvaward
+  {\textbf{First Place} — ``Innovation in Action'' category}
+  {First Academic Projects Fair \& 4th Alumni Meeting, Systems Engineering Program — Universidad del Cauca.}
+  {Apr. 2026}
+
+\cvaward
+  {Speaker — ``Dementia-Level Classification on MRI Images with Deep Learning''}
+  {Poster and paper presented at the First Academic Projects Fair, Universidad del Cauca.}
+  {Apr. 2026}
+
+\cvaward
+  {Speaker — ``Bayesian Optimization of a Convolutional Neural Network for P-Wave Detection''}
+  {Poster presented at the 5th \emph{Ciencia al Parque} Meeting, Cauca Research Board.}
+  {Dec. 2025}
+
+\cvaward
+  {Active Member — Data Science Research Group}
+  {Universidad del Cauca. Participation in research projects and academic events.}
+  {2025 -- Present}
+
+\cvaward
+  {Active Member — IEEE Student Branch, Universidad del Cauca}
+  {Support in organizing academic and technical events.}
+  {2025 -- Present}
+
+% =====================================================================
+%  FEATURED PROJECTS
+% =====================================================================
+\section*{Featured Projects}
+
+\cvproject
+  {Vigía Cauca — Team Lead \& Full-Stack Developer}
+  {2026}
+  {Web platform for the Cauca Government Secretariat (regional government)}
+  {\begin{itemize}
+    \item Led the development team across every stage of the project, from requirements gathering to formal client handover.
+    \item Built the frontend (React + Leaflet) and backend (Spring Boot + PostgreSQL) of a geo-referenced security-incident management system under a hexagonal, microservices architecture.
+    \item Implemented role-based authentication, interactive dashboards with heat maps, and exportable reports (PDF / Excel), with CI/CD on GitHub Actions.
+  \end{itemize}}
+  {React, Leaflet, Spring Boot, Java, PostgreSQL, Docker, GitHub Actions}
+
+\cvproject
+  {AIMO — Full-Stack \& AI Developer}
+  {2026 \textbullet\ \href{https://aimo-amber.vercel.app}{aimo-amber.vercel.app}}
+  {Conversational emotional-support assistant for university students}
+  {\begin{itemize}
+    \item Built a cascading multi-agent system with LLMs (LLaMA 3.3-70B, GPT-4, Claude Sonnet 4.5) using the \emph{LLM-as-a-Judge} methodology to assess empathy in real time.
+    \item Developed the backend (Python + Flask) integrating multiple AI providers (Groq, OpenAI, AWS Bedrock) and the frontend (React + Vite).
+    \item Deployed the full-stack application to production (Vercel + Railway).
+  \end{itemize}}
+  {Python, Flask, React, LLMs, Groq, OpenAI, AWS Bedrock}
+
+\cvproject
+  {Personal Portfolio}
+  {2026 \textbullet\ \href{https://ana-sofia-arango.vercel.app}{ana-sofia-arango.vercel.app}}
+  {Editorial personal site with full-page navigation and animations}
+  {\begin{itemize}
+    \item Designed and built a portfolio with a full-page navigation system, slideshow-style transitions, bilingual support (ES / EN), and multiple color themes.
+  \end{itemize}}
+  {Next.js 15, React 19, TypeScript, Tailwind CSS, Framer Motion}
+
+% =====================================================================
+%  TECHNICAL SKILLS
+% =====================================================================
+\section*{Technical Skills}
+
+\cvskill{Languages}{Java, Python, TypeScript, JavaScript, C\#, SQL, HTML5, CSS3}
+\cvskill{Frontend}{React, Next.js, Angular, React Native, Tailwind CSS, Leaflet}
+\cvskill{Backend}{Spring Boot, Flask, Node.js, ASP.NET Core, REST APIs}
+\cvskill{AI / Data}{LLMs, multi-agent systems, prompt engineering, TensorFlow, Scikit-learn, OpenAI, AWS Bedrock, Groq}
+\cvskill{Databases}{PostgreSQL, MySQL, MongoDB, Oracle, Entity Framework}
+\cvskill{Cloud \& DevOps}{AWS, Vercel, Railway, Docker, Git, GitHub Actions}
+\cvskill{Architecture}{Microservices, hexagonal, onion, atomic design}
+\cvskill{Tools}{Git, GitHub, Figma}
+
+% =====================================================================
+%  CERTIFICATIONS
+% =====================================================================
+\section*{Certifications}
+
+\cvskill{NVIDIA Deep Learning Institute}{Rapid Application Development with LLMs \textbullet\ Building LLM Applications with Prompt Engineering \textbullet\ Generative AI Explained \textbullet\ Transformer-Based NLP \textbullet\ Getting Started with Deep Learning \textbullet\ Accelerating End-to-End Data Science Workflows}
+\vspace{2pt}
+\cvskill{Cisco Networking Academy}{CCNA: Introduction to Networks \textbullet\ CCNA: Switching, Routing \& Wireless Essentials \textbullet\ Junior Cybersecurity Analyst Career Path \textbullet\ Introduction to Cybersecurity}
+
+% =====================================================================
+%  LANGUAGES
+% =====================================================================
+\section*{Languages}
+
+\cvskill{Spanish}{Native}
+\cvskill{English}{Intermediate (B1-B2) — fluent technical reading and writing}
+
+\end{document}

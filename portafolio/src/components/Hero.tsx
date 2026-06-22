@@ -4,7 +4,6 @@ import { useEffect, useState } from "react";
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 import {
   ArrowUpRight,
-  Download,
   Sparkles,
   Star,
   MapPin,
@@ -14,6 +13,7 @@ import Link from "next/link";
 import { useI18n } from "@/lib/i18n";
 import { Github } from "./BrandIcons";
 import { useFullPage } from "./FullPage";
+import { CVDownload } from "./CVDownload";
 
 const ease = [0.22, 1, 0.36, 1] as const;
 const stagger = (i: number, base = 0.07, start = 0.25) => start + i * base;
@@ -159,14 +159,9 @@ export function Hero() {
               {t.hero.cta1}
               <ArrowUpRight className="h-3.5 w-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
             </Link>
-            <a
-              href="/cv.pdf"
-              download
-              className="inline-flex items-center gap-2 rounded-full bg-white/70 border border-[color:var(--border-strong)] px-4 sm:px-5 py-2.5 sm:py-3 text-[12px] sm:text-[13px] font-semibold text-[color:var(--foreground)] hover:bg-white transition-all"
-            >
-              <Download className="h-3.5 w-3.5" />
-              {t.hero.cta2}
-            </a>
+            <CVDownload
+              className="inline-flex items-center gap-2 rounded-full bg-white/70 border border-[color:var(--border-strong)] px-4 sm:px-5 py-2.5 sm:py-3 text-[12px] sm:text-[13px] font-semibold text-[color:var(--foreground)] hover:bg-white transition-all cursor-pointer"
+            />
           </motion.div>
         </div>
 

@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>CV — Ana Sofia Arango Yanza</title>
+<style>
+  :root{
+    --accent:#C7385A;
+    --ink:#1a1a1a;
+    --muted:#5f5f5f;
+    --rule:#d9d9d9;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  @page{ size:A4; margin:13mm 14mm; }
+  html,body{ font-family:"Segoe UI", Helvetica, Arial, sans-serif; color:var(--ink); font-size:10.2pt; line-height:1.4; }
+  a{ color:var(--accent); text-decoration:none; }
+
+  header{ text-align:center; margin-bottom:10px; }
+  header h1{ font-size:23pt; font-weight:700; letter-spacing:-0.3px; }
+  header .contact{ color:var(--muted); font-size:9pt; margin-top:4px; }
+  header .links{ color:var(--muted); font-size:9pt; margin-top:2px; }
+
+  section{ margin-top:11px; }
+  h2{ font-size:11pt; font-weight:700; text-transform:uppercase; letter-spacing:0.6px;
+      border-bottom:1.4px solid var(--rule); padding-bottom:3px; margin-bottom:6px; }
+
+  .entry{ margin-bottom:7px; }
+  .entry .row{ display:flex; justify-content:space-between; align-items:baseline; gap:10px; }
+  .entry .title{ font-weight:700; }
+  .entry .when{ color:var(--muted); font-size:9pt; white-space:nowrap; }
+  .entry .sub{ font-style:italic; color:var(--ink); }
+  .entry .sub.accent{ color:var(--accent); font-style:normal; font-weight:600; font-size:9.4pt; }
+  .entry .detail{ color:var(--muted); font-size:9.3pt; margin-top:2px; }
+  .entry ul{ margin:3px 0 0 16px; }
+  .entry ul li{ color:var(--muted); font-size:9.3pt; margin-bottom:1.5px; }
+  .entry .tech{ color:var(--muted); font-size:9pt; margin-top:2px; }
+  .entry .tech b{ color:var(--ink); }
+
+  .skill{ font-size:9.4pt; margin-bottom:2.5px; }
+  .skill b{ display:inline-block; min-width:108px; color:var(--ink); }
+  .skill span{ color:var(--muted); }
+
+  p.summary{ color:var(--ink); font-size:9.6pt; }
+  .gpa{ font-size:9.4pt; margin-top:2px; }
+  .gpa b{ color:var(--ink); }
+  section, .entry{ page-break-inside:avoid; }
+</style>
+</head>
+<body>
+
+  <header>
+    <h1>Ana Sofia Arango Yanza</h1>
+    <div class="contact">
+      Popayán, Colombia &nbsp;•&nbsp; sofiaarango141@gmail.com &nbsp;•&nbsp; +57 310 668 3378
+    </div>
+    <div class="links">
+      <a href="https://ana-sofia-arango.vercel.app">ana-sofia-arango.vercel.app</a>
+      &nbsp;•&nbsp;
+      <a href="https://linkedin.com/in/ana-sofia-arango">linkedin.com/in/ana-sofia-arango</a>
+      &nbsp;•&nbsp;
+      <a href="https://github.com/Sofii141">github.com/Sofii141</a>
+    </div>
+  </header>
+
+  <section>
+    <h2>Summary</h2>
+    <p class="summary">
+      Systems Engineering student (9th semester, GPA 4.5/5.0) and full-stack developer
+      with experience leading software projects for public-sector clients and building
+      generative-AI solutions with LLMs and multi-agent systems. Passionate about detail,
+      product design, and the intersection of software engineering and artificial
+      intelligence. Bilingual (Spanish / English).
+    </p>
+  </section>
+
+  <section>
+    <h2>Education</h2>
+    <div class="entry">
+      <div class="row"><span class="title">Universidad del Cauca</span><span class="when">Aug. 2022 – Jun. 2027 (expected)</span></div>
+      <div class="row"><span class="sub">B.Sc. in Systems Engineering</span><span class="when">Popayán, Colombia</span></div>
+      <div class="gpa">GPA: <b>4.5 / 5.0</b> &nbsp;•&nbsp; Currently in 9th semester</div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Honors &amp; Affiliations</h2>
+    <div class="entry">
+      <div class="row"><span class="title">Dean's List Scholarship (Matrícula de Honor) — Universidad del Cauca</span><span class="when">2023 – 2026</span></div>
+      <div class="detail">Awarded three times for outstanding academic performance.</div>
+    </div>
+    <div class="entry">
+      <div class="row"><span class="title">First Place — “Innovation in Action” category</span><span class="when">Apr. 2026</span></div>
+      <div class="detail">First Academic Projects Fair &amp; 4th Alumni Meeting, Systems Engineering Program — Universidad del Cauca.</div>
+    </div>
+    <div class="entry">
+      <div class="row"><span class="title">Speaker — “Dementia-Level Classification on MRI Images with Deep Learning”</span><span class="when">Apr. 2026</span></div>
+      <div class="detail">Poster and paper presented at the First Academic Projects Fair, Universidad del Cauca.</div>
+    </div>
+    <div class="entry">
+      <div class="row"><span class="title">Speaker — “Bayesian Optimization of a CNN for P-Wave Detection”</span><span class="when">Dec. 2025</span></div>
+      <div class="detail">Poster presented at the 5th <i>Ciencia al Parque</i> Meeting, Cauca Research Board.</div>
+    </div>
+    <div class="entry">
+      <div class="row"><span class="title">Active Member — Data Science Research Group</span><span class="when">2025 – Present</span></div>
+      <div class="detail">Universidad del Cauca. Participation in research projects and academic events.</div>
+    </div>
+    <div class="entry">
+      <div class="row"><span class="title">Active Member — IEEE Student Branch, Universidad del Cauca</span><span class="when">2025 – Present</span></div>
+      <div class="detail">Support in organizing academic and technical events.</div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Featured Projects</h2>
+    <div class="entry">
+      <div class="row"><span class="title">Vigía Cauca — Team Lead &amp; Full-Stack Developer</span><span class="when">2026</span></div>
+      <div class="sub accent">Web platform for the Cauca Government Secretariat (regional government)</div>
+      <ul>
+        <li>Led the development team across every stage, from requirements gathering to formal client handover.</li>
+        <li>Built the frontend (React + Leaflet) and backend (Spring Boot + PostgreSQL) of a geo-referenced security-incident management system under a hexagonal, microservices architecture.</li>
+        <li>Implemented role-based authentication, interactive dashboards with heat maps, and exportable reports (PDF / Excel), with CI/CD on GitHub Actions.</li>
+      </ul>
+      <div class="tech"><b>Tech:</b> React, Leaflet, Spring Boot, Java, PostgreSQL, Docker, GitHub Actions</div>
+    </div>
+    <div class="entry">
+      <div class="row"><span class="title">AIMO — Full-Stack &amp; AI Developer</span><span class="when">2026 • aimo-amber.vercel.app</span></div>
+      <div class="sub accent">Conversational emotional-support assistant for university students</div>
+      <ul>
+        <li>Built a cascading multi-agent system with LLMs (LLaMA 3.3-70B, GPT-4, Claude Sonnet 4.5) using the <i>LLM-as-a-Judge</i> methodology to assess empathy in real time.</li>
+        <li>Developed the backend (Python + Flask) integrating multiple AI providers (Groq, OpenAI, AWS Bedrock) and the frontend (React + Vite).</li>
+        <li>Deployed the full-stack application to production (Vercel + Railway).</li>
+      </ul>
+      <div class="tech"><b>Tech:</b> Python, Flask, React, LLMs, Groq, OpenAI, AWS Bedrock</div>
+    </div>
+    <div class="entry">
+      <div class="row"><span class="title">Personal Portfolio</span><span class="when">2026 • ana-sofia-arango.vercel.app</span></div>
+      <div class="sub accent">Editorial personal site with full-page navigation and animations</div>
+      <ul>
+        <li>Designed and built a portfolio with full-page navigation, slideshow-style transitions, bilingual support (ES / EN), and multiple color themes.</li>
+      </ul>
+      <div class="tech"><b>Tech:</b> Next.js 15, React 19, TypeScript, Tailwind CSS, Framer Motion</div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Technical Skills</h2>
+    <div class="skill"><b>Languages</b><span>Java, Python, TypeScript, JavaScript, C#, SQL, HTML5, CSS3</span></div>
+    <div class="skill"><b>Frontend</b><span>React, Next.js, Angular, React Native, Tailwind CSS, Leaflet</span></div>
+    <div class="skill"><b>Backend</b><span>Spring Boot, Flask, Node.js, ASP.NET Core, REST APIs</span></div>
+    <div class="skill"><b>AI / Data</b><span>LLMs, multi-agent systems, prompt engineering, TensorFlow, Scikit-learn, OpenAI, AWS Bedrock, Groq</span></div>
+    <div class="skill"><b>Databases</b><span>PostgreSQL, MySQL, MongoDB, Oracle, Entity Framework</span></div>
+    <div class="skill"><b>Cloud &amp; DevOps</b><span>AWS, Vercel, Railway, Docker, Git, GitHub Actions</span></div>
+    <div class="skill"><b>Architecture</b><span>Microservices, hexagonal, onion, atomic design</span></div>
+    <div class="skill"><b>Tools</b><span>Git, GitHub, Figma</span></div>
+  </section>
+
+  <section>
+    <h2>Certifications</h2>
+    <div class="skill"><b>NVIDIA DLI</b><span>Rapid Application Development with LLMs • Building LLM Applications with Prompt Engineering • Generative AI Explained • Transformer-Based NLP • Getting Started with Deep Learning • Accelerating End-to-End Data Science Workflows</span></div>
+    <div class="skill" style="margin-top:4px;"><b>Cisco Academy</b><span>CCNA: Introduction to Networks • CCNA: Switching, Routing &amp; Wireless Essentials • Junior Cybersecurity Analyst Career Path • Introduction to Cybersecurity</span></div>
+  </section>
+
+  <section>
+    <h2>Languages</h2>
+    <div class="skill"><b>Spanish</b><span>Native</span></div>
+    <div class="skill"><b>English</b><span>Intermediate (B1-B2) — fluent technical reading and writing</span></div>
+  </section>
+
+</body>
+</html>

@@ -5,7 +5,6 @@ import { motion } from "framer-motion";
 import { useI18n } from "@/lib/i18n";
 import {
   Mail,
-  Download,
   Copy,
   Check,
   ArrowUpRight,
@@ -15,6 +14,7 @@ import {
   Zap,
 } from "lucide-react";
 import { Github, Linkedin } from "./BrandIcons";
+import { CVDownload } from "./CVDownload";
 
 const ease = [0.22, 1, 0.36, 1] as const;
 const EMAIL = "sofiaarango141@gmail.com";
@@ -152,17 +152,10 @@ export function Contact() {
                 <ArrowUpRight className="h-4 w-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
               </a>
 
-              <a
-                href="/cv.pdf"
-                download
-                className="group flex items-center justify-between gap-3 rounded-2xl bg-white/80 border border-[color:var(--border-strong)] px-5 py-4 font-semibold hover:bg-white transition"
-              >
-                <span className="flex items-center gap-2.5">
-                  <Download className="h-4 w-4" />
-                  {t.contact.cv}
-                </span>
-                <ArrowUpRight className="h-4 w-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-              </a>
+              <CVDownload
+                full
+                className="group w-full flex items-center justify-between gap-3 rounded-2xl bg-white/80 border border-[color:var(--border-strong)] px-5 py-4 font-semibold hover:bg-white transition cursor-pointer"
+              />
 
               <div className="grid grid-cols-2 gap-2.5">
                 <a
@@ -178,7 +171,7 @@ export function Contact() {
                   <ArrowUpRight className="h-3.5 w-3.5 opacity-60 group-hover:opacity-100" />
                 </a>
                 <a
-                  href="https://www.linkedin.com/in/ana-sofia-arango-yanza-029310368/"
+                  href="https://www.linkedin.com/in/ana-sofia-arango/"
                   target="_blank"
                   rel="noreferrer"
                   className="group flex items-center justify-between gap-2 rounded-2xl bg-white/70 border border-[color:var(--border-strong)] px-4 py-3.5 font-semibold hover:bg-white transition"
