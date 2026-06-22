@@ -164,7 +164,7 @@ export default function BannerPage() {
                   className="font-mono text-[13px] uppercase tracking-[0.22em] font-semibold"
                   style={{ color: "#3a1a17" }}
                 >
-                  Systems Engineering Student (8th sem.)
+                  Systems Engineering Student (9th sem.)
                 </div>
                 <div
                   className="mt-1.5 font-mono text-[12px] uppercase tracking-[0.22em]"

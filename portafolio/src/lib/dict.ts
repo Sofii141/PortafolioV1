@@ -161,30 +161,69 @@ export const dict = {
       eyebrow: "Proyectos · Pág. 04",
       title: "Una selección de cosas que he construido.",
       subtitle:
-        "Reservados los espacios para los destacados. Pronto cada uno con repo, demo en vivo y caso de estudio.",
+        "Proyectos reales: clientes del sector público, IA en producción e investigación premiada.",
       viewCode: "Ver código",
-      liveDemo: "Demo",
-      reservedLabel: "Espacio reservado",
-      comingLabel: "Issue 02 · 2026",
-      placeholderProjects: [
+      liveDemo: "Demo en vivo",
+      featured: [
         {
-          name: "Reservado · Vol. 01",
-          kind: "Full Stack Web App",
+          name: "Vigía Cauca",
+          kind: "Full-Stack · Cliente real",
           description:
-            "Aplicación full stack con autenticación, dashboard y API REST. Caso de estudio en preparación.",
-          tags: ["Next.js", "Node.js", "PostgreSQL"],
+            "Plataforma de gestión georreferenciada de incidentes de seguridad para la Secretaría de Gobierno del Cauca. Lideré el equipo y desarrollé frontend y backend bajo arquitectura de microservicios.",
+          tags: ["React", "Leaflet", "Spring Boot", "PostgreSQL"],
+          repo: "https://github.com/Sofii141/vigia-cauca",
+          demo: "https://vigia-cauca.tics.sedcauca.gov.co/",
+          highlight: "Gobernación del Cauca",
         },
         {
-          name: "Reservado · Vol. 02",
-          kind: "AI · ML Web",
-          description: "Modelo de ML integrado en producto con interfaz web. Próximamente.",
-          tags: ["React", "Python", "TensorFlow"],
+          name: "AIMO",
+          kind: "IA Generativa · Full-Stack",
+          description:
+            "Asistente conversacional de apoyo emocional para estudiantes. Sistema multiagente en cascada con LLMs y metodología LLM-as-a-Judge para evaluar empatía en tiempo real.",
+          tags: ["Python", "Flask", "React", "LLMs", "AWS Bedrock"],
+          repo: "https://github.com/Sofii141/AIMO_V2",
+          demo: "https://aimo-amber.vercel.app",
+          highlight: "En producción",
         },
         {
-          name: "Reservado · Vol. 03",
-          kind: "Microservicio",
-          description: "Microservicio en Spring Boot con Docker y observabilidad.",
-          tags: ["Java", "Spring", "Docker"],
+          name: "Detección de Demencia · MRI",
+          kind: "Deep Learning · Investigación",
+          description:
+            "Clasificación de niveles de demencia en imágenes de resonancia magnética con redes neuronales convolucionales. Primer puesto en la Feria de Proyectos Académicos de la Universidad del Cauca.",
+          tags: ["Python", "CNN", "Deep Learning", "Jupyter"],
+          repo: "https://github.com/Sofii141/Clasificacion_Alzheimer_RedesNeuronales",
+          demo: "",
+          highlight: "🥇 1er Puesto",
+        },
+        {
+          name: "DevDynamics",
+          kind: "Simulación · Agentes",
+          description:
+            "Simulador de dinámicas de equipos de software basado en modelado por agentes. Modela la Ley de Brooks, el burnout y el efecto de la deuda técnica en la velocidad del equipo.",
+          tags: ["Python", "Mesa", "React", "Flask"],
+          repo: "https://github.com/Sofii141/DevDynamics",
+          demo: "",
+          highlight: "",
+        },
+        {
+          name: "Sistema de Barbería",
+          kind: "Backend · .NET",
+          description:
+            "Sistema de gestión y reservas con backend en ASP.NET Core bajo arquitectura onion y microservicios, frontend en Angular y Entity Framework para persistencia.",
+          tags: ["ASP.NET Core", "Angular", "C#", "Entity Framework"],
+          repo: "https://github.com/Sofii141/Software3-Peluqueria",
+          demo: "",
+          highlight: "",
+        },
+        {
+          name: "Palette",
+          kind: "App Móvil",
+          description:
+            "Museo de arte virtual: explora pinturas del mundo y las historias detrás de ellas. App móvil conectada a la API del Art Institute of Chicago con caché en el backend.",
+          tags: ["React Native", "Expo", "Node.js", "TypeScript"],
+          repo: "https://github.com/Sofii141/palette-ai",
+          demo: "",
+          highlight: "",
         },
       ],
       seeAllOnGithub: "Ver todo en GitHub",
@@ -199,14 +238,35 @@ export const dict = {
       },
       education: [
         {
-          when: "2021 — 2026",
+          when: "2022 — 2027",
           where: "Universidad del Cauca",
           what: "Ingeniería de Sistemas",
           detail:
-            "Cursando noveno semestre. Énfasis en desarrollo de software, arquitectura y bases de datos.",
+            "Cursando noveno semestre. Promedio acumulado 4.5/5.0 y Matrícula de Honor en 3 ocasiones. Énfasis en desarrollo de software, arquitectura e inteligencia artificial.",
         },
       ],
       work: [
+        {
+          when: "2026",
+          where: "Secretaría de Gobierno del Cauca",
+          what: "Líder de equipo & Dev Full-Stack",
+          detail:
+            "Lideré el desarrollo de Vigía Cauca, plataforma de gestión georreferenciada de incidentes de seguridad, desde el levantamiento de requisitos hasta la entrega formal al cliente.",
+        },
+        {
+          when: "2025 — Presente",
+          where: "Semillero de Ciencia de Datos · Unicauca",
+          what: "Investigadora",
+          detail:
+            "Investigación en IA aplicada. Dos ponencias y primer puesto en la Feria de Proyectos Académicos con un proyecto de deep learning para detección de demencia.",
+        },
+        {
+          when: "2025 — Presente",
+          where: "Rama Estudiantil IEEE · Unicauca",
+          what: "Miembro activa",
+          detail:
+            "Apoyo en la organización de eventos académicos y técnicos de la rama estudiantil.",
+        },
         {
           when: "Abierta · 2026",
           where: "Buscando el equipo correcto",
@@ -217,11 +277,18 @@ export const dict = {
       ],
       certs: [
         {
-          when: "En curso",
-          where: "Varias plataformas",
-          what: "Certificaciones en preparación",
+          when: "2025 — 2026",
+          where: "NVIDIA Deep Learning Institute",
+          what: "IA Generativa & Deep Learning",
           detail:
-            "Trayectoria académica complementada con cursos especializados. El listado completo llega con la próxima edición del CV.",
+            "Rapid Application Development with LLMs · Building LLM Applications with Prompt Engineering · Generative AI Explained · Transformer-Based NLP · Getting Started with Deep Learning · Accelerating End-to-End Data Science Workflows.",
+        },
+        {
+          when: "2025",
+          where: "Cisco Networking Academy",
+          what: "Redes & Ciberseguridad",
+          detail:
+            "CCNA: Introduction to Networks · CCNA: Switching, Routing & Wireless Essentials · Junior Cybersecurity Analyst Career Path · Introduction to Cybersecurity.",
         },
       ],
     },
@@ -409,30 +476,69 @@ export const dict = {
       eyebrow: "Projects · Pg. 04",
       title: "A selection of things I've built.",
       subtitle:
-        "Slots reserved for the highlights. Each one will land with repo, live demo and a small case study.",
+        "Real projects: public-sector clients, AI in production and award-winning research.",
       viewCode: "View code",
       liveDemo: "Live demo",
-      reservedLabel: "Reserved slot",
-      comingLabel: "Issue 02 · 2026",
-      placeholderProjects: [
+      featured: [
         {
-          name: "Reserved · Vol. 01",
-          kind: "Full Stack Web App",
+          name: "Vigía Cauca",
+          kind: "Full-Stack · Real client",
           description:
-            "Full stack app with auth, dashboard and REST API. Case study in progress.",
-          tags: ["Next.js", "Node.js", "PostgreSQL"],
+            "Geo-referenced security-incident management platform for the Cauca Government Secretariat. I led the team and built both frontend and backend under a microservices architecture.",
+          tags: ["React", "Leaflet", "Spring Boot", "PostgreSQL"],
+          repo: "https://github.com/Sofii141/vigia-cauca",
+          demo: "https://vigia-cauca.tics.sedcauca.gov.co/",
+          highlight: "Cauca Government",
         },
         {
-          name: "Reserved · Vol. 02",
-          kind: "AI · ML Web",
-          description: "ML model embedded into a product with a web UI. Coming soon.",
-          tags: ["React", "Python", "TensorFlow"],
+          name: "AIMO",
+          kind: "Generative AI · Full-Stack",
+          description:
+            "Conversational emotional-support assistant for students. Cascading multi-agent system with LLMs and an LLM-as-a-Judge methodology to assess empathy in real time.",
+          tags: ["Python", "Flask", "React", "LLMs", "AWS Bedrock"],
+          repo: "https://github.com/Sofii141/AIMO_V2",
+          demo: "https://aimo-amber.vercel.app",
+          highlight: "In production",
         },
         {
-          name: "Reserved · Vol. 03",
-          kind: "Microservice",
-          description: "Spring Boot microservice with Docker and observability.",
-          tags: ["Java", "Spring", "Docker"],
+          name: "Dementia Detection · MRI",
+          kind: "Deep Learning · Research",
+          description:
+            "Dementia-level classification on MRI scans using convolutional neural networks. First place at Universidad del Cauca's Academic Projects Fair.",
+          tags: ["Python", "CNN", "Deep Learning", "Jupyter"],
+          repo: "https://github.com/Sofii141/Clasificacion_Alzheimer_RedesNeuronales",
+          demo: "",
+          highlight: "🥇 1st Place",
+        },
+        {
+          name: "DevDynamics",
+          kind: "Simulation · Agents",
+          description:
+            "Agent-based simulator of software team dynamics. Models Brooks's Law, developer burnout and how technical debt affects team velocity.",
+          tags: ["Python", "Mesa", "React", "Flask"],
+          repo: "https://github.com/Sofii141/DevDynamics",
+          demo: "",
+          highlight: "",
+        },
+        {
+          name: "Barbershop System",
+          kind: "Backend · .NET",
+          description:
+            "Management and booking system with an ASP.NET Core backend under onion + microservices architecture, an Angular frontend and Entity Framework for persistence.",
+          tags: ["ASP.NET Core", "Angular", "C#", "Entity Framework"],
+          repo: "https://github.com/Sofii141/Software3-Peluqueria",
+          demo: "",
+          highlight: "",
+        },
+        {
+          name: "Palette",
+          kind: "Mobile App",
+          description:
+            "Virtual art museum: explore paintings from around the world and the stories behind them. Mobile app wired to the Art Institute of Chicago API with backend caching.",
+          tags: ["React Native", "Expo", "Node.js", "TypeScript"],
+          repo: "https://github.com/Sofii141/palette-ai",
+          demo: "",
+          highlight: "",
         },
       ],
       seeAllOnGithub: "See all on GitHub",
@@ -447,14 +553,35 @@ export const dict = {
       },
       education: [
         {
-          when: "2021 — 2026",
+          when: "2022 — 2027",
           where: "Universidad del Cauca",
           what: "Systems Engineering",
           detail:
-            "Currently in 9th semester. Focus on software development, architecture and databases.",
+            "Currently in 9th semester. GPA 4.5/5.0 and Dean's List Scholarship (Matrícula de Honor) awarded three times. Focus on software development, architecture and artificial intelligence.",
         },
       ],
       work: [
+        {
+          when: "2026",
+          where: "Cauca Government Secretariat",
+          what: "Team Lead & Full-Stack Developer",
+          detail:
+            "Led the development of Vigía Cauca, a geo-referenced security-incident management platform, from requirements gathering to formal client handover.",
+        },
+        {
+          when: "2025 — Present",
+          where: "Data Science Research Group · Unicauca",
+          what: "Researcher",
+          detail:
+            "Applied AI research. Two conference talks and first place at the Academic Projects Fair with a deep-learning project for dementia detection.",
+        },
+        {
+          when: "2025 — Present",
+          where: "IEEE Student Branch · Unicauca",
+          what: "Active Member",
+          detail:
+            "Support in organizing academic and technical events for the student branch.",
+        },
         {
           when: "Open · 2026",
           where: "Looking for the right team",
@@ -465,11 +592,18 @@ export const dict = {
       ],
       certs: [
         {
-          when: "In progress",
-          where: "Multiple platforms",
-          what: "Certifications loading",
+          when: "2025 — 2026",
+          where: "NVIDIA Deep Learning Institute",
+          what: "Generative AI & Deep Learning",
           detail:
-            "Academic path paired with specialized courses. Full list drops with the next issue of the CV.",
+            "Rapid Application Development with LLMs · Building LLM Applications with Prompt Engineering · Generative AI Explained · Transformer-Based NLP · Getting Started with Deep Learning · Accelerating End-to-End Data Science Workflows.",
+        },
+        {
+          when: "2025",
+          where: "Cisco Networking Academy",
+          what: "Networking & Cybersecurity",
+          detail:
+            "CCNA: Introduction to Networks · CCNA: Switching, Routing & Wireless Essentials · Junior Cybersecurity Analyst Career Path · Introduction to Cybersecurity.",
         },
       ],
     },
