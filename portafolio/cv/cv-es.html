@@ -4,167 +4,138 @@
 <meta charset="UTF-8">
 <title>CV — Ana Sofia Arango Yanza</title>
 <style>
-  :root{
-    --accent:#C7385A;
-    --ink:#1a1a1a;
-    --muted:#5f5f5f;
-    --rule:#d9d9d9;
+  *{ box-sizing:border-box; margin:0; padding:0; }
+  @page{ size:Letter; margin:1.0cm 1.4cm; }
+  html,body{
+    font-family: Georgia, "Times New Roman", serif;
+    color:#000; font-size:10.3pt; line-height:1.32;
   }
-  *{box-sizing:border-box;margin:0;padding:0;}
-  @page{ size:A4; margin:13mm 14mm; }
-  html,body{ font-family:"Segoe UI", Helvetica, Arial, sans-serif; color:var(--ink); font-size:10.2pt; line-height:1.4; }
-  a{ color:var(--accent); text-decoration:none; }
+  a{ color:#000; text-decoration:underline; }
 
-  header{ text-align:center; margin-bottom:10px; }
-  header h1{ font-size:23pt; font-weight:700; letter-spacing:-0.3px; }
-  header .contact{ color:var(--muted); font-size:9pt; margin-top:4px; }
-  header .links{ color:var(--muted); font-size:9pt; margin-top:2px; }
+  .name{ text-align:center; font-variant:small-caps; font-weight:700;
+          font-size:25pt; letter-spacing:1px; }
+  .contact{ text-align:center; font-size:9.4pt; margin-top:3px; }
+  .contact span.sep{ margin:0 5px; }
 
-  section{ margin-top:11px; }
-  h2{ font-size:11pt; font-weight:700; text-transform:uppercase; letter-spacing:0.6px;
-      border-bottom:1.4px solid var(--rule); padding-bottom:3px; margin-bottom:6px; }
+  h2{ font-variant:small-caps; font-size:13pt; font-weight:700; letter-spacing:0.5px;
+      border-bottom:1px solid #000; padding-bottom:1px; margin:12px 0 4px; }
 
-  .entry{ margin-bottom:7px; }
-  .entry .row{ display:flex; justify-content:space-between; align-items:baseline; gap:10px; }
-  .entry .title{ font-weight:700; }
-  .entry .when{ color:var(--muted); font-size:9pt; white-space:nowrap; }
-  .entry .sub{ font-style:italic; color:var(--ink); }
-  .entry .sub.accent{ color:var(--accent); font-style:normal; font-weight:600; font-size:9.4pt; }
-  .entry .detail{ color:var(--muted); font-size:9.3pt; margin-top:2px; }
-  .entry ul{ margin:3px 0 0 16px; }
-  .entry ul li{ color:var(--muted); font-size:9.3pt; margin-bottom:1.5px; }
-  .entry .tech{ color:var(--muted); font-size:9pt; margin-top:2px; }
-  .entry .tech b{ color:var(--ink); }
+  p.summary{ font-size:10pt; margin-top:1px; }
 
-  .skill{ font-size:9.4pt; margin-bottom:2.5px; }
-  .skill b{ display:inline-block; min-width:108px; color:var(--ink); }
-  .skill span{ color:var(--muted); }
+  .entry{ margin-top:4px; }
+  .row{ display:flex; justify-content:space-between; align-items:baseline; gap:12px; }
+  .row .l{ font-weight:700; }
+  .row .r{ font-size:9.6pt; white-space:nowrap; }
+  .row.sub .l{ font-weight:400; font-style:italic; font-size:9.8pt; }
+  .row.sub .r{ font-style:italic; font-size:9.6pt; }
 
-  .lead{ font-style:italic; color:var(--accent); font-weight:600; }
-  p.summary{ color:var(--ink); font-size:9.6pt; }
-  .gpa{ font-size:9.4pt; margin-top:2px; }
-  .gpa b{ color:var(--ink); }
-  section, .entry{ page-break-inside:avoid; }
+  ul{ margin:2px 0 0 17px; }
+  li{ font-size:9.8pt; margin-bottom:1px; padding-left:2px; }
+
+  .proj .row .l{ font-weight:400; }
+  .proj .row .l b{ font-weight:700; }
+  .proj .row .l em{ font-style:italic; }
+
+  .skills p, .certs p{ font-size:9.7pt; margin-bottom:2px; }
+  .skills b, .certs b{ font-weight:700; }
+  .langs p{ font-size:9.8pt; }
+
+  section{ page-break-inside:avoid; }
 </style>
 </head>
 <body>
 
-  <header>
-    <h1>Ana Sofia Arango Yanza</h1>
-    <div class="contact">
-      Popayán, Colombia &nbsp;•&nbsp; sofiaarango141@gmail.com &nbsp;•&nbsp; +57 310 668 3378
-    </div>
-    <div class="links">
-      <a href="https://ana-sofia-arango.vercel.app">ana-sofia-arango.vercel.app</a>
-      &nbsp;•&nbsp;
-      <a href="https://linkedin.com/in/ana-sofia-arango">linkedin.com/in/ana-sofia-arango</a>
-      &nbsp;•&nbsp;
-      <a href="https://github.com/Sofii141">github.com/Sofii141</a>
-    </div>
-  </header>
+  <div class="name">Ana Sofia Arango Yanza</div>
+  <div class="contact">
+    +57 310 668 3378
+    <span class="sep">|</span>
+    <a href="mailto:sofiaarango141@gmail.com">sofiaarango141@gmail.com</a>
+    <span class="sep">|</span>
+    <a href="https://ana-sofia-arango.vercel.app">ana-sofia-arango.vercel.app</a>
+    <span class="sep">|</span>
+    <a href="https://linkedin.com/in/ana-sofia-arango">linkedin.com/in/ana-sofia-arango</a>
+    <span class="sep">|</span>
+    <a href="https://github.com/Sofii141">github.com/Sofii141</a>
+  </div>
 
   <section>
     <h2>Perfil</h2>
-    <p class="summary">
-      Estudiante de Ingeniería de Sistemas (9° semestre, promedio 4.5/5.0) y
-      desarrolladora full-stack con experiencia liderando proyectos de software para
-      entidades públicas y construyendo soluciones de IA generativa con LLMs y sistemas
-      multiagente. Me apasiona el detalle, el diseño de producto y la intersección entre
-      el desarrollo de software y la inteligencia artificial. Bilingüe (español / inglés).
-    </p>
+    <p class="summary">Estudiante de Ingeniería de Sistemas (9.º semestre, promedio 4.5/5.0) y desarrolladora full-stack con experiencia liderando proyectos de software para entidades públicas y construyendo soluciones de IA generativa con LLMs y sistemas multiagente. Bilingüe (español/inglés).</p>
   </section>
 
   <section>
     <h2>Educación</h2>
     <div class="entry">
-      <div class="row"><span class="title">Universidad del Cauca</span><span class="when">Ago. 2022 – Jun. 2027 (esperado)</span></div>
-      <div class="row"><span class="sub">Ingeniería de Sistemas</span><span class="when">Popayán, Colombia</span></div>
-      <div class="gpa">Promedio acumulado: <b>4.5 / 5.0</b> &nbsp;•&nbsp; Cursando 9° semestre</div>
+      <div class="row"><span class="l">Universidad del Cauca</span><span class="r">Popayán, Colombia</span></div>
+      <div class="row sub"><span class="l">Ingeniería de Sistemas — Promedio acumulado 4.5/5.0</span><span class="r">Ago. 2022 – Jun. 2027 (esperado)</span></div>
     </div>
   </section>
 
   <section>
-    <h2>Reconocimientos y afiliaciones</h2>
+    <h2>Experiencia</h2>
     <div class="entry">
-      <div class="row"><span class="title">Matrícula de Honor — Universidad del Cauca</span><span class="when">2023 – 2026</span></div>
-      <div class="detail">Otorgada en 3 ocasiones por promedio académico sobresaliente.</div>
+      <div class="row"><span class="l">Líder de Equipo &amp; Desarrolladora Full-Stack</span><span class="r">2026</span></div>
+      <div class="row sub"><span class="l">Secretaría de Gobierno del Cauca — Proyecto Vigía Cauca</span><span class="r">Popayán, Colombia</span></div>
+      <ul>
+        <li>Lideré el equipo de desarrollo de una plataforma de gestión georreferenciada de incidentes de seguridad, desde el levantamiento de requisitos hasta la entrega formal al cliente.</li>
+        <li>Desarrollé frontend (React + Leaflet) y backend (Spring Boot + PostgreSQL) bajo arquitectura hexagonal y de microservicios.</li>
+        <li>Implementé autenticación por roles, dashboards interactivos con mapas de calor y reportes exportables (PDF/Excel), con integración continua en GitHub Actions.</li>
+      </ul>
     </div>
     <div class="entry">
-      <div class="row"><span class="title">Primer Puesto — Categoría “Innovación en Acción”</span><span class="when">Abr. 2026</span></div>
-      <div class="detail">Primera Feria de Proyectos Académicos y IV Encuentro de Egresados, Programa de Ingeniería de Sistemas — Universidad del Cauca.</div>
-    </div>
-    <div class="entry">
-      <div class="row"><span class="title">Ponente — “Clasificación de Niveles de Demencia en Imágenes MRI con Deep Learning”</span><span class="when">Abr. 2026</span></div>
-      <div class="detail">Póster y artículo presentados en la Primera Feria de Proyectos Académicos, Universidad del Cauca.</div>
-    </div>
-    <div class="entry">
-      <div class="row"><span class="title">Ponente — “Optimización Bayesiana de una CNN para la Detección de Ondas P”</span><span class="when">Dic. 2025</span></div>
-      <div class="detail">Póster presentado en el V Encuentro <i>Ciencia al Parque</i>, Mesa de Investigaciones Cauca.</div>
-    </div>
-    <div class="entry">
-      <div class="row"><span class="title">Miembro activa — Semillero de Investigación en Ciencia de Datos</span><span class="when">2025 – Presente</span></div>
-      <div class="detail">Universidad del Cauca. Participación en proyectos de investigación y eventos académicos.</div>
-    </div>
-    <div class="entry">
-      <div class="row"><span class="title">Miembro activa — Rama Estudiantil IEEE, Universidad del Cauca</span><span class="when">2025 – Presente</span></div>
-      <div class="detail">Apoyo en la organización de eventos académicos y técnicos.</div>
+      <div class="row"><span class="l">Investigadora — Semillero de Ciencia de Datos</span><span class="r">2025 – Presente</span></div>
+      <div class="row sub"><span class="l">Universidad del Cauca</span><span class="r">Popayán, Colombia</span></div>
+      <ul>
+        <li>Investigación en IA aplicada; <b>primer puesto</b> en la Feria de Proyectos Académicos con un modelo de deep learning para detección de niveles de demencia en imágenes MRI.</li>
+        <li>Dos ponencias en eventos académicos (detección de demencia y optimización bayesiana de una CNN para detección de ondas P).</li>
+        <li>Miembro activa de la Rama Estudiantil IEEE; apoyo en la organización de eventos académicos y técnicos.</li>
+      </ul>
     </div>
   </section>
 
   <section>
-    <h2>Proyectos destacados</h2>
-    <div class="entry">
-      <div class="row"><span class="title">Vigía Cauca — Líder de equipo &amp; Desarrolladora Full-Stack</span><span class="when">2026</span></div>
-      <div class="sub accent">Plataforma web para la Secretaría de Gobierno del Cauca (Gobernación)</div>
+    <h2>Proyectos</h2>
+    <div class="entry proj">
+      <div class="row"><span class="l"><b>AIMO</b> | <em>Python, Flask, React, LLMs, AWS Bedrock</em></span><span class="r">2026</span></div>
       <ul>
-        <li>Lideré el equipo de desarrollo en todas las etapas, desde requisitos hasta la entrega formal al cliente.</li>
-        <li>Desarrollé frontend (React + Leaflet) y backend (Spring Boot + PostgreSQL) de un sistema de gestión georreferenciada de incidentes bajo arquitectura hexagonal y de microservicios.</li>
-        <li>Implementé autenticación por roles, dashboards interactivos con mapas de calor y reportes exportables (PDF / Excel), con CI/CD en GitHub Actions.</li>
+        <li>Asistente conversacional de apoyo emocional para estudiantes con un sistema multiagente en cascada (LLaMA 3.3-70B, GPT-4, Claude Sonnet 4.5) y metodología LLM-as-a-Judge para evaluar empatía en tiempo real.</li>
+        <li>Backend en Flask integrando Groq, OpenAI y AWS Bedrock; frontend en React. Desplegado en producción (Vercel + Railway).</li>
       </ul>
-      <div class="tech"><b>Tecnologías:</b> React, Leaflet, Spring Boot, Java, PostgreSQL, Docker, GitHub Actions</div>
     </div>
-    <div class="entry">
-      <div class="row"><span class="title">AIMO — Desarrolladora Full-Stack &amp; IA</span><span class="when">2026 • aimo-amber.vercel.app</span></div>
-      <div class="sub accent">Asistente conversacional de apoyo emocional para estudiantes universitarios</div>
+    <div class="entry proj">
+      <div class="row"><span class="l"><b>Detección de Demencia · MRI</b> | <em>Python, CNN, Deep Learning</em></span><span class="r">2026</span></div>
       <ul>
-        <li>Construí un sistema multiagente en cascada con LLMs (LLaMA 3.3-70B, GPT-4, Claude Sonnet 4.5) aplicando la metodología <i>LLM-as-a-Judge</i> para evaluar empatía en tiempo real.</li>
-        <li>Desarrollé el backend (Python + Flask) integrando múltiples proveedores de IA (Groq, OpenAI, AWS Bedrock) y el frontend (React + Vite).</li>
-        <li>Desplegué la aplicación full-stack en producción (Vercel + Railway).</li>
+        <li>Clasificación de niveles de demencia en imágenes de resonancia magnética con redes neuronales convolucionales. <b>Primer puesto</b> en la Feria de Proyectos Académicos de la Universidad del Cauca.</li>
       </ul>
-      <div class="tech"><b>Tecnologías:</b> Python, Flask, React, LLMs, Groq, OpenAI, AWS Bedrock</div>
     </div>
-    <div class="entry">
-      <div class="row"><span class="title">Portafolio personal</span><span class="when">2026 • ana-sofia-arango.vercel.app</span></div>
-      <div class="sub accent">Sitio personal editorial con navegación full-page y animaciones</div>
+    <div class="entry proj">
+      <div class="row"><span class="l"><b>DevDynamics</b> | <em>Python, Mesa, React, Flask</em></span><span class="r">2025</span></div>
       <ul>
-        <li>Diseñé y desarrollé un portafolio con navegación full-page, transiciones tipo diapositiva, soporte bilingüe (ES / EN) y múltiples temas de color.</li>
+        <li>Simulador de dinámicas de equipos de software basado en modelado por agentes; modela la Ley de Brooks, el burnout y el efecto de la deuda técnica en la velocidad del equipo.</li>
       </ul>
-      <div class="tech"><b>Tecnologías:</b> Next.js 15, React 19, TypeScript, Tailwind CSS, Framer Motion</div>
     </div>
   </section>
 
-  <section>
+  <section class="skills">
     <h2>Habilidades técnicas</h2>
-    <div class="skill"><b>Lenguajes</b><span>Java, Python, TypeScript, JavaScript, C#, SQL, HTML5, CSS3</span></div>
-    <div class="skill"><b>Frontend</b><span>React, Next.js, Angular, React Native, Tailwind CSS, Leaflet</span></div>
-    <div class="skill"><b>Backend</b><span>Spring Boot, Flask, Node.js, ASP.NET Core, APIs REST</span></div>
-    <div class="skill"><b>IA / Datos</b><span>LLMs, sistemas multiagente, prompt engineering, TensorFlow, Scikit-learn, OpenAI, AWS Bedrock, Groq</span></div>
-    <div class="skill"><b>Bases de datos</b><span>PostgreSQL, MySQL, MongoDB, Oracle, Entity Framework</span></div>
-    <div class="skill"><b>Cloud &amp; DevOps</b><span>AWS, Vercel, Railway, Docker, Git, GitHub Actions</span></div>
-    <div class="skill"><b>Arquitectura</b><span>Microservicios, hexagonal, onion, atomic design</span></div>
-    <div class="skill"><b>Herramientas</b><span>Git, GitHub, Figma</span></div>
+    <p><b>Lenguajes:</b> Java, Python, TypeScript, JavaScript, C#, SQL, HTML/CSS</p>
+    <p><b>Frontend:</b> React, Next.js, Angular, React Native, Tailwind CSS, Leaflet</p>
+    <p><b>Backend:</b> Spring Boot, Flask, Node.js, ASP.NET Core, APIs REST</p>
+    <p><b>IA / Datos:</b> LLMs, sistemas multiagente, prompt engineering, TensorFlow, Scikit-learn, AWS Bedrock</p>
+    <p><b>Bases de datos:</b> PostgreSQL, MySQL, MongoDB, Oracle</p>
+    <p><b>Herramientas:</b> Git, GitHub Actions, Docker, AWS, Figma; arquitectura de microservicios / hexagonal</p>
   </section>
 
-  <section>
-    <h2>Certificaciones</h2>
-    <div class="skill"><b>NVIDIA DLI</b><span>Rapid Application Development with LLMs • Building LLM Applications with Prompt Engineering • Generative AI Explained • Transformer-Based NLP • Getting Started with Deep Learning • Accelerating End-to-End Data Science Workflows</span></div>
-    <div class="skill" style="margin-top:4px;"><b>Cisco Academy</b><span>CCNA: Introduction to Networks • CCNA: Switching, Routing &amp; Wireless Essentials • Junior Cybersecurity Analyst Career Path • Introduction to Cybersecurity</span></div>
+  <section class="certs">
+    <h2>Certificaciones y reconocimientos</h2>
+    <p><b>NVIDIA Deep Learning Institute:</b> Rapid Application Development with LLMs · Building LLM Applications with Prompt Engineering · Generative AI Explained · Transformer-Based NLP · Getting Started with Deep Learning · Accelerating End-to-End Data Science Workflows</p>
+    <p><b>Cisco Networking Academy:</b> CCNA: Introduction to Networks · CCNA: Switching, Routing &amp; Wireless Essentials · Junior Cybersecurity Analyst · Introduction to Cybersecurity</p>
+    <p><b>Reconocimientos:</b> Matrícula de Honor (3 ocasiones) · Primer puesto — Feria de Proyectos Académicos, Universidad del Cauca (2026)</p>
   </section>
 
-  <section>
+  <section class="langs">
     <h2>Idiomas</h2>
-    <div class="skill"><b>Español</b><span>Nativo</span></div>
-    <div class="skill"><b>Inglés</b><span>Intermedio (B1-B2) — lectura y escritura técnica con fluidez</span></div>
+    <p><b>Español:</b> Nativo &nbsp;&nbsp;&nbsp; <b>Inglés:</b> Intermedio (B1-B2) — lectura y escritura técnica con fluidez</p>
   </section>
 
 </body>
