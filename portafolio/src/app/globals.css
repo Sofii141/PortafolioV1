@@ -59,10 +59,16 @@ html, body {
   }
 }
 
-/* Mobile: natural scrolling, sections size to content with a min height */
+/* Mobile: natural document scrolling, sections size to content with a min height.
+   Force height:auto + overflow:visible so the whole document scrolls naturally —
+   the most reliable setup for touch. (Defeats the html `h-full` height:100% which
+   otherwise turns html into a fixed-height scroll container that misbehaves on
+   real mobile browsers.) */
 @media (max-width: 767px) {
   html, body {
-    overflow-y: auto;
+    height: auto !important;
+    min-height: 100%;
+    overflow: visible !important;
     overscroll-behavior-y: contain;
   }
   .snap-section {
